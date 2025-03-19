@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% load static %}
+<!-- prettier-ignore -->
+{% block title %}Blogs - Iglesia Cristiana{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="my-5">
+  <h1 class="text-center">Blogs y Noticias</h1>
+  <div class="row">
+    {% for blog in blogs %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        {% if blog.imagen %}
+        <a href="{% url 'blog_detail' blog.id %}">
+          <img
+            src="{{ blog.imagen.url }}"
+            class="card-img-top"
+            alt="{{ blog.titulo }}"
+          />
+        </a>
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.titulo }}</h5>
+          <p class="card-text">{{ blog.introduccion }}</p>
+          <a href="{% url 'blog_detail' blog.id %}" class="btn btn-primary"
+            >Leer más</a
+          >
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center">No hay blogs publicados aún.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

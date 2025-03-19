@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load static %}
+<!-- prettier-ignore -->
+{% block title %}Encuentros de Oración{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="my-5">
+  <h1 class="text-center">Encuentros de Oración</h1>
+
+  <!-- Componente 1: Último encuentro realizado -->
+  <div class="my-4">
+    <h2>Último Encuentro Realizado</h2>
+    {% if ultimo_encuentro %}
+    <div class="row">
+      <div class="col-md-6">
+        {% if ultimo_encuentro.imagen %}
+        <img
+          src="{{ ultimo_encuentro.imagen.url }}"
+          class="img-fluid rounded"
+          alt="{{ ultimo_encuentro.titulo }}"
+        />
+        {% else %}
+        <p>No hay imagen disponible.</p>
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <h3>{{ ultimo_encuentro.titulo }}</h3>
+        <p>
+          <strong>Fecha:</strong> {{ ultimo_encuentro.fecha|date:"d M Y H:i" }}
+        </p>
+        <p>{{ ultimo_encuentro.descripcion }}</p>
+      </div>
+    </div>
+    {% else %}
+    <p>No hay encuentros de oración realizados aún.</p>
+    {% endif %}
+  </div>
+
+  <!-- Componente 2: Próximos encuentros -->
+  <div class="my-4">
+    <h2>Próximos Encuentros de Oración ({{ "now"|date:"Y" }})</h2>
+    <div class="row">
+      {% for encuentro in proximos_encuentros %}
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ encuentro.titulo }}</h5>
+            <p class="card-text">
+              <strong>Fecha:</strong> {{ encuentro.fecha|date:"d M Y H:i" }}
+            </p>
+            <p class="card-text">{{ encuentro.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-center">
+        No hay encuentros de oración programados para este año.
+      </p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

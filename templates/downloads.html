@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %}
+<!-- prettier-ignore -->
+{% block title %}Descargas - Iglesia Cristiana{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="my-5">
+  <h1 class="text-center">Descargas</h1>
+  <p class="text-center">Aquí encontrarás informes, afiches, formatos y más.</p>
+  <div class="row">
+    {% for documento in documentos %}
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ documento.titulo }}</h5>
+          <p class="card-text">{{ documento.descripcion }}</p>
+          <p class="card-text">
+            <small>Subido: {{ documento.fecha_subida|date:"d M Y" }}</small>
+          </p>
+          <a href="{{ documento.archivo.url }}" class="btn btn-primary" download
+            >Descargar</a
+          >
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center">No hay documentos disponibles para descargar.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

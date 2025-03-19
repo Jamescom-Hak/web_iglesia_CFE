@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% load static %} {% block title %}
+{{ blog.titulo }} Iglesia Cristiana{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<section class="my-5">
+  <h1 class="text-center">{{ blog.titulo }}</h1>
+  <p class="text-center text-muted">
+    Publicado el {{ blog.fecha_publicacion|date:"d M Y" }}
+  </p>
+  <div class="row">
+    <div class="col-md-12">
+      {% if blog.imagen %}
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="{{ blog.imagen.url }}"
+            class="blog-detail-img rounded mb-4"
+            alt="{{ blog.titulo }}"
+          />
+        </div>
+        <div class="col-md-6">
+          <p>{{ blog.contenido }}</p>
+        </div>
+      </div>
+      {% else %}
+      <p>{{ blog.contenido }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
