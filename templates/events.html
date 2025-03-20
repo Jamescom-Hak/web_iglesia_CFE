@@ -9,9 +9,9 @@
     {% for evento in eventos %}
     <div class="col-md-4">
       <div class="card mb-4">
-        {% if evento.imagen %}
+        {% if evento.nombre_imagen %}
         <img
-          src="{{ evento.imagen.url }}"
+          src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
           class="card-img-top"
           alt="{{ evento.titulo }}"
         />

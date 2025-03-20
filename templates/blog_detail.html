@@ -11,11 +11,11 @@
   </p>
   <div class="row">
     <div class="col-md-12">
-      {% if blog.imagen %}
+      {% if blog.nombre_imagen %}
       <div class="row">
         <div class="col-md-6">
           <img
-            src="{{ blog.imagen.url }}"
+            src="{% static 'images/blogs/'|add:blog.nombre_imagen %}"
             class="blog-detail-img rounded mb-4"
             alt="{{ blog.titulo }}"
           />

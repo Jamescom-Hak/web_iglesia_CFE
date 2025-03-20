@@ -50,10 +50,6 @@ STATICFILES_DIRS = [BASE_DIR / 'static']  # Donde están tus archivos CSS e imá
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Archivos de medios (para imágenes subidas)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

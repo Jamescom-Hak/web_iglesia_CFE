@@ -2,7 +2,7 @@
 <!-- prettier-ignore -->
 {% load static %}
 <!-- prettier-ignore -->
-{% block title %}Blogs - Iglesia Cristiana{% endblock %}
+{% block title %}Blogs{% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
 <section class="my-5">
@@ -11,10 +11,10 @@
     {% for blog in blogs %}
     <div class="col-md-4">
       <div class="card mb-4">
-        {% if blog.imagen %}
+        {% if blog.nombre_imagen %}
         <a href="{% url 'blog_detail' blog.id %}">
           <img
-            src="{{ blog.imagen.url }}"
+            src="{% static 'images/blogs/'|add:blog.nombre_imagen %}"
             class="card-img-top"
             alt="{{ blog.titulo }}"
           />

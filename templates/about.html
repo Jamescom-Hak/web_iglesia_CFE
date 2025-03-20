@@ -68,10 +68,10 @@
       {% for miembro in equipo %}
       <div class="col-md-4 col-lg-3 mb-4">
         <div class="card team-card">
-          {% if miembro.foto %}
+          {% if miembro.nombre_imagen %}
           <img
-            src="{{ miembro.foto.url }}"
-            class="card-img-top team-img"
+            src="{% static 'images/equipo/'|add:miembro.nombre_imagen %}"
+            class="card-img-top-equipo"
             alt="{{ miembro.nombre }}"
           />
           {% endif %}

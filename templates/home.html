@@ -54,10 +54,10 @@
                 >Ver más eventos</a
               >
             </div>
-            {% if evento.imagen %}
+            {% if evento.nombre_imagen %}
             <a href="{% url 'events' %}" class="flex-shrink-0">
               <img
-                src="{{ evento.imagen.url }}"
+                src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
                 class="card-img-top-even"
                 alt="{{ evento.titulo }}"
               />
@@ -81,10 +81,10 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card2 mb-4">
-          {% if ultimo_blog.imagen %}
+          {% if ultimo_blog.nombre_imagen %}
           <a href="{% url 'blog_detail' ultimo_blog.id %}">
             <img
-              src="{{ ultimo_blog.imagen.url }}"
+              src="{% static 'images/blogs/'|add:ultimo_blog.nombre_imagen %}"
               class="card-img-top-blog"
               alt="{{ ultimo_blog.titulo }}"
             />
