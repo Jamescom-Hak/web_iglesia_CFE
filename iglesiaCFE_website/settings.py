@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-plz)#+7j^fp3v!3j$25^&9c!-3sx-gt@9$u$1=gqya91bklms@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']  # O ['web-iglesia-cfe.up.railway.app']
+ALLOWED_HOSTS = ['*', 'webiglesiacfe-production.up.railway.app']
 
 
 # Application definition
@@ -39,6 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
 ]
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Donde se recolectan los estáticos
+STATICFILES_DIRS = [BASE_DIR / 'static']  # Donde están tus archivos CSS e imágenes
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,14 +122,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Donde se recolectan los estáticos
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Donde están tus archivos CSS e imágenes
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
