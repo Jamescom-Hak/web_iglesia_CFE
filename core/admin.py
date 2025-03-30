@@ -1,5 +1,9 @@
+""" 
+Carga de las diferentes instancias para el correcto funcionamiento de la App
+"""
 from django.contrib import admin
-from .models import Evento, Documento, Blog, About, Equipo
+from core.models import Evento, Documento, Blog, About, Equipo
+
 
 admin.site.register(Evento)
 admin.site.register(Documento)

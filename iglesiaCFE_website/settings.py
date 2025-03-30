@@ -45,8 +45,11 @@ INSTALLED_APPS = [
 
 # Archivos estáticos
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Donde se recolectan los estáticos
-STATICFILES_DIRS = [BASE_DIR / 'static']  # Donde están tus archivos CSS e imágenes
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

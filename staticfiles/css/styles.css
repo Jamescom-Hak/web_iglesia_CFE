@@ -29,6 +29,11 @@ body {
   font-size: 1rem; /* Reducido de 1.25rem */
   margin-bottom: 0;
 }
+.logo-img {
+  width: 100px; /* Ajusta el ancho según necesites */
+  height: auto; /* Mantiene la proporción */
+  margin-bottom: 10px; /* Espacio debajo si usas la Opción 1 */
+}
 
 /* ___________________ 
    Estilos para NavBar 
