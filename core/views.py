@@ -68,9 +68,9 @@ def contact(request):
     un mensaje directo al email oficial de la iglesia
     """
     context = {
-        'ubicacion': 'Calle Ejemplo 123, Ciudad, País',
-        'email': 'contacto@iglesia.com',
-        'telefono': '+123 456 7890',
+        'ubicacion': 'Carrera 17A No. 25A-20 V/cio;',
+        'email': 'osc_que@hotmail.com',
+        'telefono': '+57 310 205 12 16',
     }
     return render(request, 'contact.html', context)
 

@@ -15,10 +15,21 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var currentPath = window.location.pathname;
+      var navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(function (link) {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active-link');
+        }
+      });
+    });
+  </script>
   <body>
     <!-- Navbar fija -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid d-flex align-items-center">
         <button
           class="btn btn-outline-primary me-2"
           type="button"
@@ -27,10 +38,22 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+        <div class="d-flex flex-column ms-3">
+          <div class="d-flex align-items-center">
+            <div class="drawer-header me-2">
+              <img src="{% static 'images/logo_iglesia.png' %}" alt="Logo de la Iglesia" class="drawer-logo">
+            </div>
+            <div class="text-center">
+              <h5 class="denomination-text mb-0">Denominación Misión Panamericana de Colombia</h5>
+              <p class="pj-number-black mb-0">P.J. Esp. No. 867 de MinInterior</p>
+              <h3 class="welcome-text mb-0">Centro de Fe y Esperanza - Oriente</h3>
+              <p class="pj-number-blue mb-0">P.J. Ext. No. 1343 de MinInterior</p>
+            </div>
+          </div>
+        </div>
+        <a class="navbar-brand ms-auto" href="{% url 'home' %}">Inicio</a>
       </div>
-    </nav>
-
+    </nav>  
     <!-- Drawer -->
     <div
       class="offcanvas offcanvas-start"
@@ -153,7 +176,16 @@
               <li><a href="{% url 'about' %}#historia">Historia</a></li>
               <li><a href="{% url 'about' %}#mision">Misión</a></li>
               <li><a href="{% url 'about' %}#vision">Visión</a></li>
+              <li><a href="{% url 'about' %}#vision">Denominación</a></li>
             </ul>
+            <div class="social-icons">
+              <a href="#" class="me-2"
+                ><img
+                  src="{% static 'images/logo_mision.png' %}"
+                  alt="Mision"
+                  class="social-icon"
+              /></a>
+            </div>
           </div>
 
           <!-- Columna 5: Datos de contacto -->
