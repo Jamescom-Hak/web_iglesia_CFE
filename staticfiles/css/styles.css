@@ -5,8 +5,12 @@
   src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: #f8f9fa;
   margin: 0;
 }
@@ -17,8 +21,7 @@ body {
 .header-home {
   background: transparent; /* Fondo transparente */
   color: #000000;
-  margin-top: 200px;
-  padding-top: 5rem;
+  padding-top: 3rem;
   position: relative;
   z-index: 1;
 }
@@ -41,9 +44,10 @@ body {
   color: #2c3e50;
 }
 
-.header-home .lead {
+.header-home p {
   font-size: 1rem; /* Reducido de 1.25rem */
-  margin-bottom: 0;
+  font-size: 1.5em;
+  color: #000000;
   align-content: center;
 }
 .logo-small {
@@ -54,6 +58,7 @@ body {
 /* ___________________ 
    Estilos para NavBar 
    ___________________ */
+   
 .navbar.fixed-top {
   z-index: 1030;
 }
@@ -128,6 +133,7 @@ body {
 /* ___________________ 
    Estilos para Footer 
    ____________________ */
+
 .footer {
   background-color: #2c3e50; /* Azul oscuro */
   color: #fff;
@@ -160,6 +166,7 @@ body {
 /* _________________ 
    Estilos para Home 
    _________________ */
+
 .home-section {
   padding: 40px 30px;
   border-radius: 10px;
@@ -203,14 +210,72 @@ body {
   z-index: 2; /* Contenido encima de la capa oscura */
 }
 
-/* Evento */
+/* _____________________ 
+   Estilos para Eventos 
+   _____________________ */
+
 .evento-block {
   background-color: #e8f4f8; /* Azul claro */
 }
 
-.evento-block h2 {
+.evento-block h5 {
   font-family: "Montserrat", sans-serif;
   color: #2c5282;
+}
+
+.eventos-section {
+  padding: 60px 20px; /* Más espacio desde la parte superior */
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+.eventos-section h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #2c5282; /* Azul profundo */
+  margin-bottom: 40px; /* Más espacio después del título */
+}
+
+/* Centrar las tarjetas en la página */
+.row.justify-content-center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Ancho máximo para centrar */
+}
+
+/* Espaciado entre tarjetas */
+.col-md-4 {
+  margin-bottom: 30px; /* Más espacio vertical */
+  padding-left: 15px; /* Espacio horizontal */
+  padding-right: 15px;
+}
+
+/* Estilos para las tarjetas de eventos */
+.card-evento {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px; /* Espaciado interno */
+  height: calc(100%); 
+  display: flex;
+  flex-direction: column;
+}
+
+.card-evento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-evento {
+  height: 150px; /* Reducimos ligeramente la altura de la imagen */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px; /* Espacio entre la imagen y el texto */
+}
+
+.card-img-evento:hover {
+  opacity: 0.9;
+  cursor: pointer;
 }
 
 /* Invitación */
@@ -221,7 +286,7 @@ body {
 .invitacion-text {
   font-family: "Montserrat", sans-serif; /* Fuente ancha y moderna */
   font-weight: 700; /* Peso ancho */
-  font-size: 3rem; /* Tamaño grande */
+  font-size: 2rem; /* Tamaño grande */
   color: #c53030; /* Rojo suave */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra */
   line-height: 1.2; /* Espaciado para legibilidad */
@@ -250,8 +315,29 @@ body {
 }
 
 .card-body {
-  padding: 15px; /* Reducido para compactar */
+  flex: 1; /* Hace que el cuerpo ocupe todo el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
 }
+
+.card-title {
+  font-family: "Montserrat", sans-serif, bold;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a36508; /* Texto blanco para contrastar con el fondo */
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  color: #a36508; /* Texto gris claro para contrastar */
+  margin-bottom: 8px;
+  flex-grow: 1; /* Permite que el texto ocupe más espacio si es necesario */
+}
+
 /* Ajuste de tamaño de imágenes en Home y Blogs */
 .card-img-top-even {
   max-height: 400px;
@@ -294,6 +380,10 @@ body {
   cursor: pointer;
 }
 
+/* ___________________ 
+   Estilos para Blog 
+   ___________________ */
+
 /* Blog */
 .blog-block {
   background-color: #e6ffe6; /* Verde claro */
@@ -325,6 +415,10 @@ body {
   background-color: #f8f9fa;
   height: auto;
 }
+
+/* ________________________ 
+   Estilos para Acerca de 
+   ________________________ */
 
 .about-section {
   padding: 0 30px; /* Margen externo a los lados */
@@ -437,4 +531,95 @@ body {
 .team-role {
   font-family: "Open Sans", sans-serif;
   color: #666;
+}
+
+/* ______________________ 
+   Estilos para Contacto 
+   ______________________ */
+
+/* Estilos generales */
+.contacto-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa; /* Fondo claro */
+}
+
+.contacto-section h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #2c5282; /* Azul profundo */
+  margin-bottom: 40px;
+}
+
+/* Bloques de información, mapa y formulario */
+.info-block,
+.map-block,
+.form-block {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.info-block {
+  background-color: #c264c5;
+  color: #fff; /* Texto blanco */
+}
+
+.map-block {
+  background-color: #89c037; /* Blanco */
+}
+
+#map {
+  width: 100%;
+  height: 300px; /* Altura del mapa */
+  border-radius: 12px;
+}
+
+.form-block {
+  background-color: #0ed9d9;
+  color: #fff; /* Texto blanco */
+}
+
+/* Títulos dentro de los bloques */
+.info-block h3,
+.form-block h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Etiquetas y campos del formulario */
+.form-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #fff; /* Texto blanco en el formulario */
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #fff; /* Borde blanco al enfocar */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Botón de envío */
+.btn-light {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #2c5282; /* Azul profundo */
+  transition: background-color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #f0f0f0; /* Gris claro */
 }

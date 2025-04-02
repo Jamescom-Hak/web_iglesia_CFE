@@ -11,6 +11,9 @@ class Evento(models.Model):
     titulo = models.CharField(max_length=100)
     fecha = models.DateTimeField()
     descripcion = models.TextField()
+    valor = models.CharField(max_length=100, default='')
+    informacion = models.CharField(max_length=100, default='')
+    otros = models.CharField(max_length=100, default='')
     es_oracion = models.BooleanField(default=False)
     nombre_imagen = models.CharField(max_length=30, default='')
 

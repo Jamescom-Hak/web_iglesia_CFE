@@ -5,31 +5,63 @@
 {% block title %}Eventos{% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
-<section class="my-5">
-  <h1 class="text-center">Eventos</h1>
-  <div class="row">
+<section class="eventos-section my-5">
+  <h1 class="text-center mb-4">Eventos</h1>
+  <div class="row justify-content-center">
     {% for evento in eventos %}
-    <div class="col-md-4">
-      <div class="card mb-4">
+    <div class="col-md-4 mb-4">
+      <!-- Tarjeta -->
+      <div class="card card-evento h-100" style="background-color: {{ evento.color_fondo }};">
+        <!-- Imagen del evento (activa el modal) -->
         {% if evento.nombre_imagen %}
         <img
           src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
-          class="card-img-top"
+          class="card-img-top card-img-evento cursor-pointer"
           alt="{{ evento.titulo }}"
+          data-bs-toggle="modal"
+          data-bs-target="#eventoModal{{ evento.id }}"
         />
         {% endif %}
-        <div class="card-body">
-          <h5 class="card-title">{{ evento.titulo }}</h5>
-          <p class="card-text">{{ evento.fecha|date:"d M Y H:i" }}</p>
-          <p class="card-text">{{ evento.descripcion }}</p>
-          {% if evento.es_oracion %}
-          <span class="badge bg-primary">Encuentro de Oración</span>
-          {% endif %}
+        <!-- Contenido del evento -->
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">{{ evento.titulo }}</h5>
+          <p class="card-text">{{ evento.descripcion|truncatewords:20 }}</p>
+          <p class="card-text">Valor: {{ evento.valor|truncatewords:20 }}</p>
+          <p class="card-text">{{ evento.informacion|truncatewords:20 }}</p>
+          <p class="card-text">{{ evento.otros|truncatewords:20 }}</p>
+        </div>
+      </div>
+
+      <!-- Modal para la imagen -->
+      <div
+        class="modal fade"
+        id="eventoModal{{ evento.id }}"
+        tabindex="-1"
+        aria-labelledby="eventoModalLabel{{ evento.id }}"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eventoModalLabel{{ evento.id }}">{{ evento.titulo }}</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body text-center">
+              <img
+                src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
+                class="img-fluid"
+                alt="{{ evento.titulo }}"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    {% empty %}
-    <p class="text-center">No hay eventos programados.</p>
     {% endfor %}
   </div>
 </section>

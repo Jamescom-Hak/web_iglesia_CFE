@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap');
 @font-face {
   font-family: 'Greatvibes-Regular';
-  src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+  src: url("../fonts/GreatVibes-Regular.f8ab2af266e7.ttf") format('truetype');
 }
 
 .cursor-pointer {
@@ -175,7 +175,7 @@ body {
 }
 
 .home-background {
-  background-image: url("../images/fondo_cristiano_2.jpg"); /* Ajusta el nombre de tu imagen */
+  background-image: url("../images/fondo_cristiano_2.947d823c81cc.jpg"); /* Ajusta el nombre de tu imagen */
   background-size: cover;
   background-color: rgb(138, 232, 251);
   background-position: center;
@@ -560,12 +560,12 @@ body {
 }
 
 .info-block {
-  background-color: #c264c5;
+  background-color: #c867cb;
   color: #fff; /* Texto blanco */
 }
 
 .map-block {
-  background-color: #89c037; /* Blanco */
+  background-color: #a8f731; /* Blanco */
 }
 
 #map {
@@ -575,7 +575,7 @@ body {
 }
 
 .form-block {
-  background-color: #0ed9d9;
+  background-color: #0df2f2;
   color: #fff; /* Texto blanco */
 }
 
