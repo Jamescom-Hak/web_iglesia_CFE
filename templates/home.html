@@ -7,10 +7,12 @@
 
 {% comment %} Bloque Encabezado {% endcomment %}
 {% block header %}
-{% comment %} <header class="header-home text-center mt-5">
-  <h2>Bienvenidos</h2>
-  <p>Caminemos juntos </p>
-</header> {% endcomment %}
+<header class="header-image-container">
+  <img src="{% static 'images/foto_iglesia.jpg' %}" alt="Iglesia" class="img-fluid header-image">
+  <div class="header-text-overlay">
+    <h2>Bienvenidos</h2>
+  </div>
+</header>
 {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
@@ -111,6 +113,30 @@
     {% else %}
     <p class="text-center">No hay publicaciones disponibles.</p>
     {% endif %}
+  </div>
+</div>
+
+<!-- Sección 5: Videos Cortos -->
+<div class="home-section videos-block">
+  <div class="container">
+    <h2 class="text-center mb-4">Videos Cortos</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 mb-4">
+        <div class="video-container">
+          <video controls class="video-short">
+            <source src="{% static 'videos/video_necesitan.mp4' %}" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="video-container">
+          <video controls class="video-short">
+            <source src="{% static 'videos/video_prescencia.mp4' %}" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

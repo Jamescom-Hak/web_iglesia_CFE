@@ -1,0 +1,683 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap');
+@font-face {
+  font-family: 'Greatvibes-Regular';
+  src: url("../fonts/GreatVibes-Regular.f8ab2af266e7.ttf") format('truetype');
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+/* ___________________ 
+   Estilos para Header 
+   ___________________ */
+.header-home {
+  background: transparent; /* Fondo transparente */
+  color: #000000;
+  padding-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header-home h1 {
+  font-size: 1.7rem; /* Reducido de 3rem */
+  margin: 5px 0; /* Margen más pequeño */
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-home h4{
+  font-size: 0.7rem; /* Reducido de 1.5rem */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header-home h3 {
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  color: #2c3e50;
+}
+
+.header-home p {
+  font-size: 1rem; /* Reducido de 1.25rem */
+  font-size: 1.5em;
+  color: #000000;
+  align-content: center;
+}
+.logo-small {
+  width: 200px;
+  height: auto;
+}
+
+.header-image-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Ajusta la altura según tus necesidades */
+  overflow: hidden;
+  margin-top: 60px; /* Ajusta el margen superior para separar la imagen de la barra superior */
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+}
+
+.header-text-overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
+  padding: 20px;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombras para mejorar la legibilidad */
+  font-family: 'Playfair Display', serif; /* Tipografía elegante */
+}
+
+.header-text-overlay h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .header-text-overlay h1 {
+    font-size: 2rem;
+  }
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-short {
+  width: 100%;
+  max-width: 400px; /* Ajusta el tamaño máximo del video */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ___________________ 
+   Estilos para NavBar 
+   ___________________ */
+   
+.navbar.fixed-top {
+  z-index: 1030;
+}
+
+.navbar .drawer-header {
+  display: flex;
+  align-items: center;
+  background-color: cyan;
+}
+
+.navbar .drawer-logo {
+  width: 100px; /* Ajusta el tamaño del logo si es necesario */
+  height: auto;
+}
+
+.navbar .denomination-text {
+  font-size: 1em; /* Tamaño de fuente */
+  font-family: 'Roboto', sans-serif;
+  color: #000; /* Color negro */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra del texto */
+}
+
+.navbar .welcome-text {
+  font-size: 2em;
+  font-family: 'Greatvibes-Regular', cursive, bold; /* Fuente atractiva para el texto */
+  color: #2c3e50; /* Color del texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra del texto */
+  margin-left: 10px; /* Espacio entre el logo y el texto */
+}
+
+.navbar .pj-number-black {
+  color: #000; /* Color negro */
+  font-size: 0.5em;
+}
+
+.navbar .pj-number-blue {
+  color: #2c3e50; /* Color azul */
+  font-size: 0.5em;
+}
+
+.navbar .navbar-brand {
+  margin-left: auto; /* Asegura que el enlace de inicio esté a la derecha */
+  align-self: center; /* Centrado verticalmente */
+}
+
+.offcanvas-body .nav-link {
+  color: #000000;
+  font-size: 1.1rem;
+  background-color: #ffffff;
+}
+
+.offcanvas-body .nav-link:hover {
+  color: #6ea9e8;
+  background-color: #ffffff;
+}
+
+.offcanvas-body .nav-link.active-link {
+  background-color: #87CEEB; /* Color de fondo azul cielo */
+  color: #000; /* Color de texto negro */
+}
+
+.drawer-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.drawer-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* ___________________ 
+   Estilos para Footer 
+   ____________________ */
+
+.footer {
+  background-color: #2c3e50; /* Azul oscuro */
+  color: #fff;
+  padding: 0px 0;
+  font-size: 15px;
+}
+
+.footer h6 {
+  font-family: "Playfair Display", serif, bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer a {
+  font-size: 15px;
+  color: #a3bffa;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* _________________ 
+   Estilos para Home 
+   _________________ */
+
+.home-section {
+  padding: 40px 30px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.home-background {
+  background-image: url("../images/fondo_cristiano_2.947d823c81cc.jpg"); /* Ajusta el nombre de tu imagen */
+  background-size: cover;
+  background-color: rgb(138, 232, 251);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* Opcional: Oscurecer el fondo para mejor legibilidad */
+.home-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* Capa oscura semitransparente */
+  z-index: 1;
+}
+
+.home-background .container {
+  position: relative;
+  z-index: 2;
+  color: #000000;
+}
+
+.home-background section {
+  position: relative;
+  z-index: 2; /* Contenido encima de la capa oscura */
+}
+
+/* _____________________ 
+   Estilos para Eventos 
+   _____________________ */
+
+.evento-block {
+  background-color: #e8f4f8; /* Azul claro */
+}
+
+.evento-block h5 {
+  font-family: "Montserrat", sans-serif;
+  color: #2c5282;
+}
+
+.eventos-section {
+  padding: 60px 20px; /* Más espacio desde la parte superior */
+  background-color: #f9f9f9; /* Fondo claro */
+}
+
+.eventos-section h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #2c5282; /* Azul profundo */
+  margin-bottom: 40px; /* Más espacio después del título */
+}
+
+/* Centrar las tarjetas en la página */
+.row.justify-content-center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Ancho máximo para centrar */
+}
+
+/* Espaciado entre tarjetas */
+.col-md-4 {
+  margin-bottom: 30px; /* Más espacio vertical */
+  padding-left: 15px; /* Espacio horizontal */
+  padding-right: 15px;
+}
+
+/* Estilos para las tarjetas de eventos */
+.card-evento {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px; /* Espaciado interno */
+  height: calc(100%); 
+  display: flex;
+  flex-direction: column;
+}
+
+.card-evento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-evento {
+  height: 150px; /* Reducimos ligeramente la altura de la imagen */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px; /* Espacio entre la imagen y el texto */
+}
+
+.card-img-evento:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* Invitación */
+.invitacion-block {
+  background-color: #f9ebeb; /* Rosa claro */
+}
+
+.invitacion-text {
+  font-family: "Montserrat", sans-serif; /* Fuente ancha y moderna */
+  font-weight: 700; /* Peso ancho */
+  font-size: 2rem; /* Tamaño grande */
+  color: #c53030; /* Rojo suave */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra */
+  line-height: 1.2; /* Espaciado para legibilidad */
+  margin: 0; /* Sin márgenes adicionales */
+}
+
+.invitacion-img {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* static/css/styles.css (añadir al final) */
+.card1 {
+  max-width: 480px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: box-shadow 0.3s ease; /* Transición para efecto hover */
+  align-items: normal;
+  padding: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el ratón */
+}
+
+.card-body {
+  flex: 1; /* Hace que el cuerpo ocupe todo el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif, bold;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #a36508; /* Texto blanco para contrastar con el fondo */
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  color: #a36508; /* Texto gris claro para contrastar */
+  margin-bottom: 8px;
+  flex-grow: 1; /* Permite que el texto ocupe más espacio si es necesario */
+}
+
+/* Ajuste de tamaño de imágenes en Home y Blogs */
+.card-img-top-even {
+  max-height: 400px;
+  max-width: 250px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card2 {
+  max-width: 600px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: box-shadow 0.3s ease; /* Transición para efecto hover */
+  align-items: normal;
+  padding: 20px;
+}
+.card-img-top-blog {
+  max-height: 400px;
+  max-width: 280px;
+  object-fit: contain;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-img-top-equipo {
+  max-height: 130px;
+  max-width: 130px;
+  object-fit: contain;
+  padding: 7px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Efecto hover para imágenes clicables */
+.card-img-top:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* ___________________ 
+   Estilos para Blog 
+   ___________________ */
+
+/* Blog */
+.blog-block {
+  background-color: #e6ffe6; /* Verde claro */
+}
+
+.blog-block h2 {
+  font-family: "Roboto Slab", serif;
+  color: #276749;
+}
+
+/* Ajuste para imágenes en la pantalla de detalle */
+.blog-detail-img {
+  max-height: 300px; /* Tamaño máximo en detalle */
+  width: 100%;
+  object-fit: contain; /* Muestra la imagen completa */
+}
+
+.informative-row {
+  padding: 20px 0; /* Espacio vertical */
+}
+
+.content-row {
+  padding: 20px 0;
+}
+
+.informative-row img,
+.informative-row iframe {
+  max-width: 100%; /* Ajusta imagen o video al ancho */
+  background-color: #f8f9fa;
+  height: auto;
+}
+
+/* ________________________ 
+   Estilos para Acerca de 
+   ________________________ */
+
+.about-section {
+  padding: 0 30px; /* Margen externo a los lados */
+  max-width: 1200px; /* Ancho máximo para centrar */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-block {
+  padding: 20px; /* Margen interno */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Remembranza */
+.remembranza-block {
+  background-color: #f4f1de; /* Amarillo claro */
+}
+
+.remembranza-block .about-title {
+  font-family: "Playfair Display", serif;
+  color: #8d5524; /* Marrón suave */
+}
+
+.remembranza-block .about-text {
+  font-family: "Lora", serif;
+  color: #6b4e31;
+}
+
+/* Historia */
+.historia-block {
+  background-color: #e8f4f8; /* Azul claro */
+}
+
+.historia-block .about-title {
+  font-family: "Montserrat", sans-serif;
+  color: #2c5282; /* Azul oscuro */
+}
+
+.historia-block .about-text {
+  font-family: "Open Sans", sans-serif;
+  color: #4a5568;
+}
+
+/* Misión y Visión */
+.mision-vision-block {
+  background-color: #e6ffe6; /* Verde claro */
+}
+
+.mision-vision-block .about-title {
+  font-family: "Roboto Slab", serif;
+  color: #276749; /* Verde oscuro */
+}
+
+.mision-vision-block .about-text {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #4a704a;
+}
+
+/* Equipo */
+.equipo-block {
+  background-color: #f9ebeb; /* Rosa claro */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.about-title {
+  font-family: "Playfair Display", serif; /* Tipografía diferente para títulos */
+  color: #2c3e50; /* Azul oscuro */
+  margin-bottom: 15px;
+}
+
+.about-text {
+  font-family: "Open Sans", sans-serif; /* Tipografía diferente para texto */
+  color: #555;
+  margin: 0 20px; /* Márgenes equilibrados */
+  line-height: 1.6;
+}
+
+.about-img {
+  max-height: 300px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-card {
+  background-color: #fff; /* Blanco para contraste */
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px); /* Efecto al pasar el ratón */
+}
+
+.team-img {
+  height: 100px; /* Altura fija */
+  width: 100px; /* Ancho fijo */
+  object-fit: cover; /* Recorta para ajustar */
+  margin: 0 auto; /* Centra la imagen */
+  display: block; /* Asegura el centrado */
+}
+
+.team-name {
+  font-family: "Playfair Display", serif;
+  color: #007bff; /* Azul para nombres */
+  margin-bottom: 10px;
+}
+
+.team-role {
+  font-family: "Open Sans", sans-serif;
+  color: #666;
+}
+
+/* ______________________ 
+   Estilos para Contacto 
+   ______________________ */
+
+/* Estilos generales */
+.contacto-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa; /* Fondo claro */
+}
+
+.contacto-section h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #2c5282; /* Azul profundo */
+  margin-bottom: 40px;
+}
+
+/* Bloques de información, mapa y formulario */
+.info-block,
+.map-block,
+.form-block {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.info-block {
+  background-color: #c264c5;
+  color: #fff; /* Texto blanco */
+}
+
+.contact-info {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.map-block {
+  background-color: #89c037; /* Blanco */
+}
+
+#map {
+  width: 100%;
+  height: 300px; /* Altura del mapa */
+  border-radius: 12px;
+}
+
+.form-block {
+  background-color: #0ed9d9;
+  color: #fff; /* Texto blanco */
+}
+
+/* Títulos dentro de los bloques */
+.info-block h3,
+.form-block h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Etiquetas y campos del formulario */
+.form-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #fff; /* Texto blanco en el formulario */
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #fff; /* Borde blanco al enfocar */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Botón de envío */
+.btn-light {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #2c5282; /* Azul profundo */
+  transition: background-color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #f0f0f0; /* Gris claro */
+}

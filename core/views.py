@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.shortcuts import render, redirect
 from core.models import About, Equipo, Evento, Documento, Blog
+from django.conf import settings
 
 
 def home(request):
@@ -102,6 +103,35 @@ def contact(request):
             messages.error(request, 'Ha ocurrido un error inesperado. Inténtalo más tarde.')
 
     return render(request, 'contact.html')  # Renderiza la plantilla HTML
+
+
+def contact_test(request):
+    """ 
+    Lugar donde el usuario puede ver las diferentes formas de contacto 
+    con la iglesia, asì mismo por medio de un formulario puede enviar 
+    un mensaje directo al email oficial de la iglesia
+    """
+    if request.method == 'POST':
+        nombre = request.POST['nombre']
+        email = request.POST['email']
+        mensaje = request.POST['mensaje']
+
+        # Construir el mensaje
+        mensaje_completo = f'Nombre: {nombre}\nCorreo Electrónico: {email}\nMensaje:\n{mensaje}'
+
+        # Enviar el correo
+        send_mail(
+            subject='Nuevo Mensaje de Contacto',
+            message=mensaje_completo,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=['osc_que@hotmail.com'],
+        )
+
+        # Mostrar un mensaje de éxito
+        messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
+        return redirect('contact_test')  # Redirigir a la misma página después de enviar el mensaje
+
+    return render(request, 'contact_test.html')
 
 
 def prayer_meetings(request):
