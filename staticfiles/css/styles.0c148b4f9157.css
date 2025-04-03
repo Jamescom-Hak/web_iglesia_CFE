@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap');
 @font-face {
   font-family: 'Greatvibes-Regular';
-  src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+  src: url("../fonts/GreatVibes-Regular.f8ab2af266e7.ttf") format('truetype');
 }
 
 .cursor-pointer {
@@ -103,7 +103,7 @@ body {
 .video-short {
   width: 100%;
   max-width: 220px; /* Ajusta el tamaño máximo del video */
-  height: 320px;
+  height: 270px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -221,14 +221,14 @@ body {
    _________________ */
 
 .home-section {
-  padding: 20px 20px;
+  padding: 40px 30px;
   border-radius: 10px;
   margin: 20px auto;
   max-width: 1200px;
 }
 
 .home-background {
-  background-image: url("../images/fondo_cristiano_2.jpg"); /* Ajusta el nombre de tu imagen */
+  background-image: url("../images/fondo_cristiano_2.947d823c81cc.jpg"); /* Ajusta el nombre de tu imagen */
   background-size: cover;
   background-color: rgb(138, 232, 251);
   background-position: center;
@@ -393,8 +393,8 @@ body {
 
 /* Ajuste de tamaño de imágenes en Home y Blogs */
 .card-img-top-even {
-  max-height: 520px;
-  max-width: 360px;
+  max-height: 450px;
+  max-width: 350px;
   object-fit: contain;
   padding: 10px;
 }
@@ -408,8 +408,8 @@ body {
   padding: 20px;
 }
 .card-img-top-blog {
-  max-height: 180px;
-  max-width: 220px;
+  max-height: 320px;
+  max-width: 280px;
   object-fit: contain;
   padding: 10px;
   display: block;
@@ -442,7 +442,7 @@ body {
   background-color: #e6ffe6; /* Verde claro */
 }
 
-.blog-block h3 {
+.blog-block h2 {
   font-family: "Roboto Slab", serif;
   color: #276749;
 }
@@ -592,7 +592,7 @@ body {
 
 /* Estilos generales */
 .contacto-section {
-  padding: 45px 20px;
+  padding: 60px 20px;
   background-color: #f8f9fa; /* Fondo claro */
 }
 
@@ -680,15 +680,4 @@ body {
 
 .btn-light:hover {
   background-color: #f0f0f0; /* Gris claro */
-}
-
-/* Botón de blog */ 
-.btn-primary {
-  background-color: #2c5282;
-  border: none;
-  border-radius: 8px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  color: #ffffff; /* Azul profundo */
-  transition: background-color 0.3s ease;
 }

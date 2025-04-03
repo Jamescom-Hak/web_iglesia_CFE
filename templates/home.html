@@ -48,11 +48,11 @@
 <!-- Sección 3: Evento destacado -->
 <div class="home-section evento-block">
   <div class="container">
-    <h2 class="text-center mb-4">Evento Destacado</h2>
+    <h3 class="text-center mb-4">Evento Destacado</h3>
     {% for evento in eventos|slice:":1" %}
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <div class="card1 mb-4">
+        <div class="card1 mb-6">
           <div class="d-flex flex-row">
             <div class="card-body flex-grow-1">
               <h5 class="card-title">{{ evento.titulo }}</h5>
@@ -84,7 +84,7 @@
 <!-- Sección 4: Última publicación -->
 <div class="home-section blog-block">
   <div class="container">
-    <h2 class="text-center mb-4">Última Publicación</h2>
+    <h3 class="text-center mb-4">Última Publicación</h3>
     {% if ultimo_blog %}
     <div class="row justify-content-center">
       <div class="col-md-8">
@@ -119,7 +119,7 @@
 <!-- Sección 5: Videos Cortos -->
 <div class="home-section videos-block">
   <div class="container">
-    <h2 class="text-center mb-4">Videos Cortos</h2>
+    <h3 class="text-center mb-4">Tu ayuda es importante</h3>
     <div class="row justify-content-center">
       <div class="col-md-6 mb-4">
         <div class="video-container">
