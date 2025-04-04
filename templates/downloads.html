@@ -8,19 +8,21 @@
 <section class="my-5">
   <h1 class="text-center">Descargas</h1>
   <p class="text-center">Aquí encontrarás informes, afiches, formatos y más.</p>
-  <div class="row">
+  <div class="row justify-content-center">
     {% for documento in documentos %}
     <div class="col-md-4">
-      <div class="card mb-4">
+      <div class="card-dow mb-4">
+        <img src="{% static 'downloads/calendario_iglesia.jpg' %}" class="card-dow-img-top img-fluid w-100" alt="Documento">
         <div class="card-body">
           <h5 class="card-title">{{ documento.titulo }}</h5>
           <p class="card-text">{{ documento.descripcion }}</p>
           <p class="card-text">
             <small>Subido: {{ documento.fecha_subida|date:"d M Y" }}</small>
           </p>
-          <a href="{{ documento.archivo.url }}" class="btn btn-primary" download
-            >Descargar</a
-          >
+          <p class="card-text">
+            <small>Descargas: {{ documento.descargas }}</small>
+          </p>
+          <a href="{% url 'descargar_documento' documento.pk %}" class="btn btn-primary">Descargar</a>
         </div>
       </div>
     </div>

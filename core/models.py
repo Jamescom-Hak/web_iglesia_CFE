@@ -28,10 +28,11 @@ class Documento(models.Model):
     """  
     Documentos relacionados en la pantalla de downloads
     """
-    titulo = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=255, default='')
     descripcion = models.TextField(blank=True)
-    archivo = models.FileField(upload_to='descargas/')
+    archivo = models.FileField(upload_to='documentos/')
     fecha_subida = models.DateTimeField(auto_now_add=True)
+    descargas = models.IntegerField(default=0)
 
     # Definir el administrador de objetos
     objects = models.Manager()

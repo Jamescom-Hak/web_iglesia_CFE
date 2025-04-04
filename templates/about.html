@@ -18,7 +18,7 @@
       <div class="col-md-6 order-md-1">
         <img
           src="{% static 'images/remembranza.jpg' %}"
-          class="img-fluid rounded about-img"
+          class="img-fluid rounded about-img w-100"
           alt="Remembranza"
         />
       </div>
@@ -35,7 +35,7 @@
       <div class="col-md-6">
         <img
           src="{% static 'images/historia.png' %}"
-          class="img-fluid rounded about-img"
+          class="img-fluid rounded about-img w-100"
           alt="Historia"
         />
       </div>
@@ -69,7 +69,7 @@
           {% if miembro.nombre_imagen %}
           <img
             src="{% static 'images/equipo/'|add:miembro.nombre_imagen %}"
-            class="card-img-top-equipo"
+            class="card-img-top-equipo img-fluid w-100"
             alt="{{ miembro.nombre }}"
           />
           {% endif %}

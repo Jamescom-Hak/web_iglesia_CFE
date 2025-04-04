@@ -8,7 +8,7 @@
 {% comment %} Bloque Encabezado {% endcomment %}
 {% block header %}
 <header class="header-image-container">
-  <img src="{% static 'images/foto_iglesia.jpg' %}" alt="Iglesia" class="img-fluid header-image">
+  <img src="{% static 'images/foto_iglesia.jpg' %}" alt="Iglesia" class="img-fluid w-100 header-image">
   <div class="header-text-overlay">
     <h2>Bienvenidos</h2>
   </div>
@@ -37,7 +37,7 @@
       <div class="col-md-6">
         <img
           src="{% static 'images/fondo_cristiano_2.jpg' %}"
-          class="img-fluid rounded invitacion-img"
+          class="img-fluid rounded invitacion-img w-100"
           alt="Invitación"
         />
       </div>
@@ -66,7 +66,7 @@
             <a href="{% url 'events' %}" class="flex-shrink-0">
               <img
                 src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
-                class="card-img-top-even"
+                class="card-img-top-even img-fluid w-100"
                 alt="{{ evento.titulo }}"
               />
             </a>
@@ -93,7 +93,7 @@
           <a href="{% url 'blog_detail' ultimo_blog.id %}">
             <img
               src="{% static 'images/blogs/'|add:ultimo_blog.nombre_imagen %}"
-              class="card-img-top-blog"
+              class="card-img-top-blog img-fluid w-100"
               alt="{{ ultimo_blog.titulo }}"
             />
           </a>

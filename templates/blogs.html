@@ -15,7 +15,7 @@
         <a href="{% url 'blog_detail' blog.id %}">
           <img
             src="{% static 'images/blogs/'|add:blog.nombre_imagen %}"
-            class="card-img-top"
+            class="card-img-top img-fluid w-100"
             alt="{{ blog.titulo }}"
           />
         </a>

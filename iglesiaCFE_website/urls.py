@@ -27,7 +27,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('contact_test/', views.contact_test, name='contact_test'),
     path('prayer-meetings/', views.prayer_meetings, name='prayer_meetings'),
-    path('downloads/', views.downloads, name='downloads'),
+    path('descargas/', views.descargas_view, name='downloads'),
+    path('descargar/<int:pk>/', views.descargar_documento, name='descargar_documento'),
     path('blogs/', views.blogs, name='blogs'),
     path('blogs/<int:blog_id>/', views.blog_detail, name='blog_detail'),
 ]

@@ -6,12 +6,13 @@ de la App
 
 import logging
 from smtplib import SMTPException
+from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.utils import timezone
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import FileResponse, Http404
 from core.models import About, Equipo, Evento, Documento, Blog
-from django.conf import settings
 
 
 def home(request):
@@ -160,12 +161,28 @@ def prayer_meetings(request):
     return render(request, 'prayer_meetings.html', context)
 
 
-def downloads(request):
-    """ 
-    Documentos importantes que la iglesia permitr consultar a los usuarios
-    por medio de descargas 
+def descargar_documento(request, pk):
+    """  
+    Descarga de documentos
     """
-    documentos = Documento.objects.order_by('-fecha_subida')
+    documento = get_object_or_404(Documento, pk=pk)
+    documento.descargas += 1
+    documento.save()
+    try:
+        response = FileResponse(
+            documento.archivo.open('rb'),
+            as_attachment=True,
+            filename=documento.archivo.name)
+        return response
+    except FileNotFoundError:
+        raise Http404("Archivo no encontrado")
+
+
+def descargas_view(request):
+    """  
+    Descarga de vistas
+    """
+    documentos = Documento.objects.all()
     return render(request, 'downloads.html', {'documentos': documentos})
 
 
