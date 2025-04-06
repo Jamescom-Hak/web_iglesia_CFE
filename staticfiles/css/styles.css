@@ -26,30 +26,6 @@ body {
   z-index: 1;
 }
 
-.header-home h1 {
-  font-size: 1.7rem; /* Reducido de 3rem */
-  margin: 5px 0; /* Margen más pequeño */
-  font-family: 'Roboto', sans-serif;
-}
-
-.header-home h4{
-  font-size: 0.7rem; /* Reducido de 1.5rem */
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-}
-
-.header-home h3 {
-  font-size: 1.5em;
-  font-family: 'Roboto', sans-serif;
-  color: #2c3e50;
-}
-
-.header-home p {
-  font-size: 1rem; /* Reducido de 1.25rem */
-  font-size: 1.5em;
-  color: #000000;
-  align-content: center;
-}
 .logo-small {
   width: 200px;
   height: auto;
@@ -73,7 +49,7 @@ body {
   position: absolute;
   top: 5%;
   left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, -50%);
   color: white;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
@@ -83,13 +59,24 @@ body {
   font-family: 'Playfair Display', serif; /* Tipografía elegante */
 }
 
-.header-text-overlay h1 {
+.header-text-overlay h3 {
   font-size: 3rem;
   margin: 0;
 }
 
+.header-home p {
+  font-size: 1rem; /* Reducido de 1.25rem */
+  font-size: 1.5em;
+  color: #000000;
+  align-content: center;
+}
+
 @media (max-width: 768px) {
-  .header-text-overlay h1 {
+  .header-image-container {
+    height: 30vh; /* Ajusta la altura para dispositivos móviles */
+  }
+
+  .header-text-overlay h2 {
     font-size: 2rem;
   }
 }
@@ -277,7 +264,7 @@ body {
 }
 
 .eventos-section {
-  padding: 60px 20px; /* Más espacio desde la parte superior */
+  padding-top: 5rem; /* Ajusta el padding superior para evitar superposición */
   background-color: #f9f9f9; /* Fondo claro */
 }
 
@@ -303,6 +290,12 @@ body {
 }
 
 /* Estilos para las tarjetas de eventos */
+
+.card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
 .card-evento {
   border: none;
   border-radius: 12px;
@@ -365,6 +358,27 @@ body {
 
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el ratón */
+  transform: translateY(-5px);
+}
+
+card-img {
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+  height: 100%; /* Asegura que la imagen tenga la misma altura que el contenedor */
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Cambia la dirección del flex para dispositivos móviles */
+    
+  }
+
+  .card-img {
+    height: auto; /* Ajusta la altura automáticamente en dispositivos móviles */
+  }
+
+  .eventos-section {
+    padding-top: 3rem; /* Ajusta el padding superior para dispositivos móviles */
+  }
 }
 
 .card-body {
@@ -711,5 +725,5 @@ body {
 }
 .card-dow-img-top {
   height: 200px;
-  object-fit: cover;
+  object-fit: contain; /* Asegura que la imagen se ajuste completamente dentro del contenedor */
 }

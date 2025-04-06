@@ -125,7 +125,7 @@ def contact_test(request):
             subject='Nuevo Mensaje de Contacto',
             message=mensaje_completo,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=['osc_que@hotmail.com'],
+            recipient_list=['ing.jamescom2@gmail.com'],
         )
 
         # Mostrar un mensaje de éxito
@@ -172,10 +172,14 @@ def descargar_documento(request, pk):
         response = FileResponse(
             documento.archivo.open('rb'),
             as_attachment=True,
-            filename=documento.archivo.name)
+            filename=documento.archivo.name
+        )
         return response
-    except FileNotFoundError:
-        raise Http404("Archivo no encontrado")
+    except FileNotFoundError as exc:
+        raise Http404("Archivo no encontrado") from exc
+
+    # pylint: disable=unused-argument
+    # Nota: `request` es un argumento necesario para manejar la solicitud HTTP.
 
 
 def descargas_view(request):
