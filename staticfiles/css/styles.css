@@ -16,68 +16,49 @@ body {
 }
 
 /* ___________________ 
-   Estilos para Header 
+   Estilos para Welcome 
    ___________________ */
-.header-home {
-  background: transparent; /* Fondo transparente */
-  color: #000000;
-  padding-top: 3rem;
-  position: relative;
-  z-index: 1;
-}
 
-.logo-small {
-  width: 200px;
-  height: auto;
-}
-
-.header-image-container {
+.welcome-section {
   position: relative;
   width: 100%;
-  height: 80vh; /* Ajusta la altura según tus necesidades */
+  height: 100vh; /* La sección ocupa toda la altura de la pantalla */
   overflow: hidden;
-  margin-top: 110px; /* Ajusta el margen superior para separar la imagen de la barra superior */
 }
 
-.header-image {
+.welcome-image {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Asegura que la imagen se ajuste completamente dentro del contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
 }
 
-.header-text-overlay {
+.welcome-overlay {
   position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
-  padding: 20px;
-  border-radius: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombras para mejorar la legibilidad */
-  font-family: 'Playfair Display', serif; /* Tipografía elegante */
+  display: flex;
+  justify-content: center;
 }
 
-.header-text-overlay h3 {
-  font-size: 3rem;
-  margin: 0;
+.welcome-text {
+  color: white;
+  font-family: 'Roboto', sans-serif; /* Usa la fuente Roboto */
+  font-size: 4rem; /* Tamaño grande para destacar */
+  text-align: center;
+  margin-top: 20px; /* Mueve el texto hacia arriba */
+  transform: translateY(-30%); /* Ajusta la posición vertical */
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8), /* Sombra oscura cercana */
+    4px 4px 8px rgba(255, 255, 255, 0.6); /* Sombra blanca para resaltar */
 }
 
-.header-home p {
-  font-size: 1rem; /* Reducido de 1.25rem */
-  font-size: 1.5em;
-  color: #000000;
-  align-content: center;
-}
-
+/* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
-  .header-image-container {
-    height: 30vh; /* Ajusta la altura para dispositivos móviles */
-  }
-
-  .header-text-overlay h2 {
-    font-size: 2rem;
+  .welcome-text {
+    font-size: 2.5rem; /* Tamaño reducido para pantallas pequeñas */
   }
 }
 
@@ -98,51 +79,65 @@ body {
 /* ___________________ 
    Estilos para NavBar 
    ___________________ */
-   
-.navbar.fixed-top {
-  z-index: 1030;
-}
 
-.navbar .drawer-header {
-  display: flex;
-  align-items: center;
-  background-color: cyan;
-}
+   .navbar {
+    padding: 0.5rem 2rem; /* Más espacio horizontal */
+  }
+  
+  .navbar.fixed-top {
+    z-index: 1030;
+  }
+  
+  .navbar .drawer-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio entre el logo y el texto */
+  }
 
-.navbar .drawer-logo {
-  width: 100px; /* Ajusta el tamaño del logo si es necesario */
-  height: auto;
-}
+  .navbar-welcome-text {
+    font-size: 1.5em; /* Tamaño ajustado */
+    font-family: 'Greatvibes-Regular', cursive, bold;
+    color: #004080; /* Color azul */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+  }
 
-.navbar .denomination-text {
-  font-size: 1em; /* Tamaño de fuente */
-  font-family: 'Roboto', sans-serif;
-  color: #000; /* Color negro */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra del texto */
-}
-
-.navbar .welcome-text {
-  font-size: 2em;
-  font-family: 'Greatvibes-Regular', cursive, bold; /* Fuente atractiva para el texto */
-  color: #2c3e50; /* Color del texto */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra del texto */
-  margin-left: 10px; /* Espacio entre el logo y el texto */
-}
-
-.navbar .pj-number-black {
-  color: #000; /* Color negro */
-  font-size: 0.5em;
-}
-
-.navbar .pj-number-blue {
-  color: #2c3e50; /* Color azul */
-  font-size: 0.5em;
-}
-
-.navbar .navbar-brand {
-  margin-left: auto; /* Asegura que el enlace de inicio esté a la derecha */
-  align-self: center; /* Centrado verticalmente */
-}
+  .navbar .text-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el texto a la izquierda */
+    gap: 0.5rem; /* Espaciado entre los elementos del bloque */
+  }
+  
+  .navbar .text-center {
+    text-align: left; /* Alineación del texto */
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+  }
+  
+  .navbar .drawer-logo {
+    width: 100px; /* Tamaño reducido del logo */
+    height: auto;
+  }
+  
+  .navbar .denomination-text {
+    font-size: 0.7rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar .welcome-text {
+    font-size: 1.5rem; /* Tamaño ajustado */
+    font-family: 'Greatvibes-Regular', cursive, bold;
+    color: #004080;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-left: 10px;
+  }
+  
+  .navbar .pj-number-black,
+  .navbar .pj-number-blue {
+    font-size: 0.8em; /* Tamaño ajustado */
+  }
 
 .offcanvas-body .nav-link {
   color: #000000;
@@ -160,15 +155,22 @@ body {
   color: #000; /* Color de texto negro */
 }
 
-.drawer-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.drawer-logo {
-  width: 100px;
-  height: auto;
-}
+/* ___________________ 
+   Estilos para Secciones 
+   ___________________ */
+   .home-section {
+    padding: 2rem 0;
+  }
+  
+  .card-img {
+    object-fit: cover;
+    height: 100%;
+  }
+  
+  .invitacion-img {
+    max-width: 100%;
+    height: auto;
+  }
 
 /* ___________________ 
    Estilos para Footer 
@@ -254,6 +256,12 @@ body {
    Estilos para Eventos 
    _____________________ */
 
+.evento-block .container {
+  display: flex;
+  overflow-x: auto;
+}
+
+
 .evento-block {
   background-color: #e8f4f8; /* Azul claro */
 }
@@ -261,6 +269,20 @@ body {
 .evento-block h5 {
   font-family: "Montserrat", sans-serif;
   color: #2c5282;
+}
+
+/* Ajuste para el título "Evento Destacado" */
+.evento-block h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Ajuste para la imagen del evento destacado */
+.evento-block .card-img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 .eventos-section {
@@ -292,8 +314,8 @@ body {
 /* Estilos para las tarjetas de eventos */
 
 .card {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  min-width: 300px; /* Ajustar el ancho mínimo de los cards */
+  margin-right: 1rem;
 }
 
 .card-evento {
@@ -367,9 +389,16 @@ card-img {
 }
 
 @media (max-width: 768px) {
+  .header-image-container {
+    height: 30vh; /* Ajusta la altura para dispositivos móviles */
+  }
+
+  .header-text-overlay h2 {
+    font-size: 2rem;
+  }
+
   .card {
     flex-direction: column; /* Cambia la dirección del flex para dispositivos móviles */
-    
   }
 
   .card-img {

@@ -4,18 +4,14 @@
 <!-- prettier-ignore -->
 {% block title %}Inicio{% endblock %}
 <!-- prettier-ignore -->
-
-{% comment %} Bloque Encabezado {% endcomment %}
-{% block header %}
-<header class="header-image-container">
-  <img src="{% static 'images/foto_iglesia.jpg' %}" alt="Iglesia" class="img-fluid w-100 header-image">
-  <div class="header-text-overlay">
-    <h4>Bienvenidos</h4>
-  </div>
-</header>
-{% endblock %}
-<!-- prettier-ignore -->
 {% block content %}
+<!-- Sección de bienvenida -->
+<section class="welcome-section">
+  <div class="welcome-overlay">
+    <h1 class="welcome-text">Bienvenidos</h1>
+  </div>
+  <img src="{% static 'images/foto_iglesia.jpg' %}" alt="Iglesia" class="img-fluid w-100 welcome-image">
+</section>
 
 {% comment %} Bloque para Eventos {% endcomment %}
 <!-- Sección 2: Texto al lado de la imagen -->
@@ -45,46 +41,93 @@
   </div>
 </div>
 
-<!-- Sección 3: Evento destacado -->
-<div class="home-section evento-block">
-  <div class="container">
-    <h3 class="text-center mb-4">Evento Destacado</h3>
-    {% for evento in eventos|slice:":1" %}
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card1 mb-6">
-          <div class="d-flex flex-row">
-            <div class="card-body flex-grow-1">
-              <h5 class="card-title">{{ evento.titulo }}</h5>
-              <p class="card-text">{{ evento.fecha|date:"d M Y H:i" }}</p>
-              <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
-              <a href="{% url 'events' %}" class="btn btn-primary"
-                >Ver más eventos</a
-              >
+<!-- Sección 3: Eventos Deslizantes -->
+<div class="home-section evento-block d-flex flex-column align-items-center">
+  <!-- Título Centrado -->
+  <h3 class="text-center mt-2 mb-2">Eventos Destacados</h3>
+
+  <!-- Carrusel de Eventos -->
+  <div id="eventCarousel" class="carousel slide w-60" data-bs-ride="carousel">
+    <!-- Indicadores del Carrusel -->
+    <div class="carousel-indicators">
+      {% for evento in eventos %}
+      <button
+        type="button"
+        data-bs-target="#eventCarousel"
+        data-bs-slide-to="{{ forloop.counter0 }}"
+        {% if forloop.first %}class="active"{% endif %}
+        aria-label="Slide {{ forloop.counter }}"></button>
+      {% endfor %}
+    </div>
+
+    <!-- Contenido del Carrusel -->
+    <div class="carousel-inner">
+      {% for evento in eventos %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="card card-evento shadow-sm">
+          <div class="row g-0">
+            <!-- Imagen -->
+            <div class="col-md-5 d-flex align-items-center justify-content-center">
+              {% if evento.nombre_imagen %}
+              <a href="{% url 'events' %}" class="d-block">
+                <img
+                  src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
+                  class="img-fluid rounded-start object-fit-cover"
+                  alt="{{ evento.titulo }}"
+                />
+              </a>
+              {% endif %}
             </div>
-            {% if evento.nombre_imagen %}
-            <a href="{% url 'events' %}" class="flex-shrink-0">
-              <img
-                src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
-                class="card-img-top-even img-fluid w-100"
-                alt="{{ evento.titulo }}"
-              />
-            </a>
-            {% endif %}
+
+            <!-- Contenido del Card -->
+            <div class="col-md-7">
+              <div class="card-body d-flex flex-column justify-content-center h-100">
+                <h5 class="card-title">{{ evento.titulo }}</h5>
+                <p class="card-text"><small>{{ evento.fecha|date:"d M Y H:i" }}</small></p>
+                <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
+                <a href="{% url 'events' %}" class="btn btn-primary mt-auto">Ver más eventos</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {% empty %}
+      <div class="carousel-item active">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <p class="text-center">No hay eventos próximos.</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% empty %}
-    <p class="text-center">No hay eventos próximos.</p>
-    {% endfor %}
+
+    <!-- Botones de Navegación -->
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#eventCarousel"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#eventCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
   </div>
 </div>
 
 <!-- Sección 4: Última publicación -->
 <div class="home-section blog-block">
   <div class="container">
-    <h3 class="text-center mb-4">Última Publicación</h3>
+    <h3 class="text-center mb-3">Última Publicación</h3>
     {% if ultimo_blog %}
     <div class="row justify-content-center">
       <div class="col-md-8">

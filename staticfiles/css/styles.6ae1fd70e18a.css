@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap');
 @font-face {
   font-family: 'Greatvibes-Regular';
-  src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+  src: url("../fonts/GreatVibes-Regular.f8ab2af266e7.ttf") format('truetype');
 }
 
 .cursor-pointer {
@@ -18,13 +18,45 @@ body {
 /* ___________________ 
    Estilos para Welcome 
    ___________________ */
+.header-home {
+  background: transparent; /* Fondo transparente */
+  color: #000000;
+  padding-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.drawer-logo {
+  width: 50px; /* Ajusta el ancho del logo */
+  height: auto; /* Mantén la proporción */
+}
+
+/* Estilos para el bloque de información */
+.denomination-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.pj-number-black {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  color: #2c5282; /* Color azul para destacar */
+}
+
+.pj-number-blue {
+  font-size: 0.9rem;
+  color: #2c5282; /* Color azul para consistencia */
+}
 
 .welcome-section {
   position: relative;
   width: 100%;
-  height: 75vh; /* La sección ocupa toda la altura de la pantalla */
+  height: 100vh; /* La sección ocupa toda la altura de la pantalla */
   overflow: hidden;
-  margin-top: 7rem;
 }
 
 .welcome-image {
@@ -35,11 +67,11 @@ body {
 
 .welcome-overlay {
   position: absolute;
-  top: 25%;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente para mejorar la legibilidad del texto */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
   display: flex;
   justify-content: center;
 }
@@ -47,19 +79,19 @@ body {
 .welcome-text {
   color: white;
   font-family: 'Roboto', sans-serif; /* Usa la fuente Roboto */
-  font-size: 2.7rem; /* Tamaño grande para destacar */
+  font-size: 4rem; /* Tamaño grande para destacar */
   text-align: center;
   margin-top: 20px; /* Mueve el texto hacia arriba */
   transform: translateY(-30%); /* Ajusta la posición vertical */
   text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.9), /* Sombra oscura cercana */
-    4px 4px 8px rgba(0, 0, 0, 0.8); /* Sombra oscura para resaltar */
+    2px 2px 4px rgba(0, 0, 0, 0.8), /* Sombra oscura cercana */
+    4px 4px 8px rgba(255, 255, 255, 0.6); /* Sombra blanca para resaltar */
 }
 
 /* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
   .welcome-text {
-    font-size: 2.5rem; /* Tamaño reducido para pantallas pequeñas */
+    font-size: 2.5rem;
   }
 }
 
@@ -80,57 +112,57 @@ body {
 /* ___________________ 
    Estilos para NavBar 
    ___________________ */
+   
+.navbar.fixed-top {
+  z-index: 1030;
+}
 
-  .navbar {
-    padding: 0.2rem 1rem; /* Más espacio horizontal */
-  }
-  
-  .navbar.fixed-top {
-    z-index: 1030;
-  }
+.navbar .drawer-header {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Asegura que el logo y textos estén alineados a la izquierda */
+  background-color: cyan;
+}
 
-  .navbar .text-start {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0rem; /* Espaciado entre los elementos del bloque */
-  }
-  
-  .navbar .text-center {
-    text-align: center; /* Alineación del texto */
-  }
-  
-  .navbar .drawer-logo {
-    width: 120px; /* Tamaño reducido del logo */
-    height: auto;
-    padding-left: 20px;
-  }
-  
-  .navbar .denomination-text {
-    font-size: 0.9rem;
-    font-family: 'Roboto', sans-serif;
-    color: #000;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-  
-  .navbar .welcome-text {
-    font-size: 2rem; /* Tamaño ajustado */
-    font-family: 'Greatvibes-Regular', cursive, bold;
-    color: #004080;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    margin-left: 10px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-  
-  .navbar .pj-number-black,
-  .navbar .pj-number-blue {
-    font-size: 0.5rem; /* Tamaño ajustado */
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
+.navbar .text-center {
+  text-align: left; /* Ajusta la alineación del texto */
+  margin-left: 10px; /* Espacio entre el logo y el texto */
+}
+
+.navbar .drawer-logo {
+  width: 100px; /* Ajusta el tamaño del logo si es necesario */
+  height: auto;
+}
+
+.navbar .denomination-text {
+  font-size: 1em; /* Tamaño de fuente */
+  font-family: 'Roboto', sans-serif;
+  color: #000; /* Color negro */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra del texto */
+}
+
+.navbar .welcome-text {
+  font-size: 2em;
+  font-family: 'Greatvibes-Regular', cursive, bold; /* Fuente atractiva para el texto */
+  color: #004080; /* Azul intermedio */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra del texto */
+  margin-left: 10px; /* Espacio entre el logo y el texto */
+}
+
+.navbar .pj-number-black {
+  color: #000; /* Color negro */
+  font-size: 0.5em;
+}
+
+.navbar .pj-number-blue {
+  color: #2c3e50; /* Color azul */
+  font-size: 0.5em;
+}
+
+.navbar .navbar-brand {
+  margin-left: auto; /* Asegura que el enlace de inicio esté a la derecha */
+  align-self: center; /* Centrado verticalmente */
+}
 
 .offcanvas-body .nav-link {
   color: #000000;
@@ -148,9 +180,19 @@ body {
   color: #000; /* Color de texto negro */
 }
 
-/* ______________________ 
+.drawer-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.drawer-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* ___________________ 
    Estilos para Secciones 
-   ______________________ */
+   ___________________ */
    .home-section {
     padding: 2rem 0;
   }
@@ -210,7 +252,7 @@ body {
 }
 
 .home-background {
-  background-image: url("../images/fondo_cristiano_2.jpg"); /* Ajusta el nombre de tu imagen */
+  background-image: url("../images/fondo_cristiano_2.947d823c81cc.jpg"); /* Ajusta el nombre de tu imagen */
   background-size: cover;
   background-color: rgb(138, 232, 251);
   background-position: center;
@@ -257,7 +299,6 @@ body {
 
 .evento-block {
   background-color: #e8f4f8; /* Azul claro */
-  text-align: center; /* Asegura que todo esté centrado */
 }
 
 .evento-block h5 {
@@ -305,13 +346,6 @@ body {
   padding-right: 15px;
 }
 
-.col-md-5 {
-  display: flex;
-  align-items: center; /* Centra la imagen verticalmente */
-  justify-content: center; /* Centra la imagen horizontalmente */
-  padding: 1rem; /* Espaciado interno para evitar recortes */
-}
-
 /* Estilos para las tarjetas de eventos */
 
 .card {
@@ -322,30 +356,27 @@ body {
 .card-evento {
   border: none;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 20px; /* Espaciado interno */
-  height: 80%; 
+  height: calc(100%); 
   display: flex;
   flex-direction: column;
 }
 
 .card-evento:hover {
-  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-evento img {
-  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-  max-height: 200px; /* Altura máxima para todas las imágenes */
-  width: auto; /* Permite que el ancho se ajuste automáticamente */
-  height: auto; /* Permite que la altura se ajuste automáticamente */
-  object-fit: cover; /* Recorta la imagen si es necesario para mantener la proporción */
-  border-radius: 10px; /* Bordes redondeados para mejorar la apariencia */
+.card-img-evento {
+  height: 150px; /* Reducimos ligeramente la altura de la imagen */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px; /* Espacio entre la imagen y el texto */
 }
 
-.card-evento img:hover {
+.card-img-evento:hover {
   opacity: 0.9;
   cursor: pointer;
 }
@@ -374,7 +405,7 @@ body {
 
 /* static/css/styles.css (añadir al final) */
 .card1 {
-  max-width: 500px;
+  max-width: 580px;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   transition: box-shadow 0.3s ease; /* Transición para efecto hover */
@@ -387,9 +418,9 @@ body {
   transform: translateY(-5px);
 }
 
-.card-img {
+card-img {
   object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-  height: 80%; /* Asegura que la imagen tenga la misma altura que el contenedor */
+  height: 100%; /* Asegura que la imagen tenga la misma altura que el contenedor */
 }
 
 @media (max-width: 768px) {
@@ -415,7 +446,10 @@ body {
 }
 
 .card-body {
-  padding: 1.5rem;
+  flex: 1; /* Hace que el cuerpo ocupe todo el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
 }
 
 .card-title {
@@ -475,49 +509,6 @@ body {
 .card-img-top:hover {
   opacity: 0.8;
   cursor: pointer;
-}
-
-/* ______________________ 
-   Estilos para Carrusel 
-   ______________________ */
-
-#eventCarousel {
-  margin-top: 2rem;
-}
-
-.carousel-indicators button {
-  background-color: #004080; /* Color de los indicadores */
-  border-radius: 50%; /* Forma circular */
-  width: 10px;
-  height: 10px;
-}
-
-.carousel-indicators .active {
-  background-color: #87ceeb; /* Color del indicador activo */
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #004080; /* Color de las flechas */
-  border-radius: 50%;
-  padding: 10px;
-}
-
-.card1 {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.card1:hover {
-  transform: translateY(-5px); /* Efecto hover */
-}
-
-.card-img-top-even {
-  max-height: 150px; /* Altura máxima de la imagen */
-  object-fit: cover;
-  border-radius: 10px;
 }
 
 /* ___________________ 

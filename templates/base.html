@@ -1,107 +1,222 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}CFE{% endblock %}</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Lora:wght@400&family=Montserrat:wght@400&family=Roboto+Slab:wght@400&family=Source+Sans+Pro:wght@400&display=swap"
-      rel="stylesheet"
-    />
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-  <body>
-    <!-- Navbar fija -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container-fluid d-flex align-items-center">
-        <button
-          class="btn btn-outline-primary me-2"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#sidebar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="d-flex flex-column ms-3">
-          <div class="d-flex align-items-center">
-            <div class="drawer-header me-2">
-              <img src="{% static 'images/logo_iglesia.png' %}" alt="Logo de la Iglesia" class="drawer-logo">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}CFE{% endblock %}</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&family=Lora:wght@400&family=Montserrat:wght@400&family=Roboto+Slab:wght@400&family=Source+Sans+Pro:wght@400&display=swap"
+    rel="stylesheet"
+  />
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+  <!-- Navbar fija -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid d-flex align-items-center">
+      <!-- Botón del menú lateral -->
+      <button
+        class="btn btn-outline-primary me-3"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Contenedor para el logo y el texto -->
+      <div class="d-flex align-items-center flex-grow-1">
+        <!-- Logo -->
+        <div class="me-3">
+          <img src="{% static 'images/logo_iglesia.png' %}" alt="Logo de la Iglesia" class="drawer-logo">
+        </div>
+  
+        <!-- Bloque de información -->
+        <div class="text-start">
+          <h5 class="navbar denomination-text mb-0">Denominación Misión Panamericana de Colombia</h5>
+          <p class="navbar pj-number-black mb-0">P.J. Esp. No. 867 de MinInterior</p>
+          <h5 class="navbar welcome-text mb-0">Centro de Fe y Esperanza - Oriente</h5>
+          <p class="navbar pj-number-blue mb-0">P.J. Ext. No. 1343 de MinInterior</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Drawer -->
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="sidebar"
+    aria-labelledby="sidebarLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sidebarLabel">Menú</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">La Iglesia</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'events' %}">Eventos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'prayer_meetings' %}">Encuentros de Oración</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'resources' %}">Recursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'downloads' %}">Descargas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  {% block content %}
+  <!-- Contenido principal -->
+  <div class="container mt-5 pt-5">
+    <main class="mt-5 pt-5">
+      <!-- Margen superior para no solapar la navbar fija -->
+      <!-- Sección 2: Texto al lado de la imagen -->
+      <div class="home-section invitacion-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="invitacion-text">
+                No me escogieron ustedes a mí, sino que yo los escogí a ustedes y 
+                los comisioné para que vayan y den fruto,
+              </p>
+              <p>
+                1 Pedro 2:21, NVI
+              </p>
             </div>
-            <div class="text-center">
-              <h5 class="denomination-text mb-0">Denominación Misión Panamericana de Colombia</h5>
-              <p class="pj-number-black mb-0">P.J. Esp. No. 867 de MinInterior</p>
-              <h3 class="welcome-text mb-0">Centro de Fe y Esperanza - Oriente</h3>
-              <p class="pj-number-blue mb-0">P.J. Ext. No. 1343 de MinInterior</p>
+            <div class="col-md-6">
+              <img
+                src="{% static 'images/fondo_cristiano_2.jpg' %}"
+                class="img-fluid rounded invitacion-img w-100"
+                alt="Invitación"
+              />
             </div>
           </div>
         </div>
-        <a class="navbar-brand ms-auto" href="{% url 'home' %}">Inicio</a>
       </div>
-    </nav>  
-    <!-- Drawer -->
-    <div
-      class="offcanvas offcanvas-start"
-      tabindex="-1"
-      id="sidebar"
-      aria-labelledby="sidebarLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="sidebarLabel">Menú</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">La Iglesia</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'events' %}">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'prayer_meetings' %}"
-              >Encuentros de Oración</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'resources' %}">Recursos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact_test' %}">Contacto Test</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'downloads' %}">Descargas</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    {% block header %}
-    <!-- Bloque para encabezado opcional -->
-    {% endblock %}
 
-    {% block content %}
-    <!-- Contenido principal -->
-    <main class="mt-5">
-      <!-- Margen superior para no solapar la navbar fija -->
+      <!-- Sección 3: Evento destacado -->
+      <div class="home-section evento-block">
+        <div class="container">
+          <h3 class="text-center mb-4">Evento Destacado</h3>
+          {% for evento in eventos|slice:":1" %}
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="card mb-4">
+                <div class="row no-gutters">
+                  {% if evento.nombre_imagen %}
+                  <div class="col-md-4">
+                    <img
+                      src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
+                      class="card-img img-fluid card-img-evento"
+                      alt="{{ evento.titulo }}"
+                    />
+                  </div>
+                  {% endif %}
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ evento.titulo }}</h5>
+                      <p class="card-text">{{ evento.fecha|date:"d M Y H:i" }}</p>
+                      <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
+                      <a href="{% url 'events' %}" class="btn btn-primary">Ver más eventos</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <p class="text-center">No hay eventos próximos.</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Sección 4: Última publicación -->
+      <div class="home-section blog-block">
+        <div class="container">
+          <h3 class="text-center mb-4">Última Publicación</h3>
+          {% if ultimo_blog %}
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="card mb-4">
+                {% if ultimo_blog.nombre_imagen %}
+                <a href="{% url 'blog_detail' ultimo_blog.id %}">
+                  <img
+                    src="{% static 'images/blogs/'|add:ultimo_blog.nombre_imagen %}"
+                    class="card-img-top img-fluid card-img-top-blog"
+                    alt="{{ ultimo_blog.titulo }}"
+                  />
+                </a>
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ ultimo_blog.titulo }}</h5>
+                  <p class="card-text">{{ ultimo_blog.introduccion }}</p>
+                  <a
+                    href="{% url 'blog_detail' ultimo_blog.id %}"
+                    class="btn btn-primary"
+                    >Leer más</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <p class="text-center">No hay publicaciones disponibles.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Sección 5: Videos Cortos -->
+      <div class="home-section videos-block">
+        <div class="container">
+          <h3 class="text-center mb-4">Tu ayuda es importante</h3>
+          <div class="row justify-content-center">
+            <div class="col-md-6 mb-4">
+              <div class="video-container">
+                <video controls class="video-short">
+                  <source src="{% static 'videos/video_necesitan.mp4' %}" type="video/mp4">
+                  Tu navegador no soporta la etiqueta de video.
+                </video>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="video-container">
+                <video controls class="video-short">
+                  <source src="{% static 'videos/video_presencia.mp4' %}" type="video/mp4">
+                  Tu navegador no soporta la etiqueta de video.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     {% endblock %}
 
@@ -128,12 +243,6 @@
                 ><img
                   src="{% static 'images/instagram.png' %}"
                   alt="Instagram"
-                  class="social-icon"
-              /></a>
-              <a href="#" class="me-2"
-                ><img
-                  src="{% static 'images/twitter.avif' %}"
-                  alt="Twitter"
                   class="social-icon"
               /></a>
             </div>
@@ -209,20 +318,21 @@
       </div>
     </footer>
     {% endblock %}
-  </body>
-  {% block scripts %}{% endblock %}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
- 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var currentPath = window.location.pathname;
-      var navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(function (link) {
-        if (link.getAttribute('href') === currentPath) {
-          link.classList.add('active-link');
-        }
-      });
+  </div>
+</body>
+{% block scripts %}{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var currentPath = window.location.pathname;
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(function (link) {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active-link');
+      }
     });
-  </script>
-  
+  });
+</script>
+
 </html>
