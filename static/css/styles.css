@@ -12,7 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #f8f9fa;
-  padding-top: 80px; /* Altura aproximada de la barra superior */
+  padding-top: 10px; /* Altura aproximada de la barra superior */
   margin: 0;
 }
 
@@ -65,8 +65,21 @@ body {
 
 /* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
+  .welcome-section {
+    margin-top: 0rem;
+  }
   .welcome-text {
     font-size: 2.5rem; /* Tamaño reducido para pantallas pequeñas */
+  }
+  .welcome-image {
+    object-fit: content; /* Asegura que la imagen se ajuste al contenedor */
+  }
+  .welcome-overlay {
+    top: 30%;
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+  .welcome-text {
+    font-size: 1.5rem;
   }
 }
 
@@ -89,7 +102,7 @@ body {
    ___________________ */
 
   .navbar {
-    padding: 0.5rem 1rem; /* Más espacio horizontal */
+    padding: 0.5rem 0.1rem; /* Más espacio horizontal */
   }
   
   .navbar.fixed-top {
@@ -163,16 +176,20 @@ body {
   }
 
   .navbar .drawer-logo {
-    margin-bottom: 0.5rem; /* Espacio entre el logo y el texto */
+    margin-bottom: 0.2rem; /* Espacio entre el logo y el texto */
+    width: 60px; /* Tamaño reducido del logo */
   }
 
   .navbar .text-start {
     align-items: center; /* Centrar el bloque de texto */
   }
 
-  .navbar .denomination-text,
+  .navbar .denomination-text {
+      font-size: 0.4rem; /* Reducir aún más el tamaño de fuente */
+  }
+
   .navbar .welcome-text {
-      font-size: 0.8rem; /* Reducir aún más el tamaño de fuente */
+      font-size: 1rem; /* Reducir aún más el tamaño de fuente */
   }
 
   .navbar .pj-number-black,
