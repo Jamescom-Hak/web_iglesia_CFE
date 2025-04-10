@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap');
 @font-face {
   font-family: 'Greatvibes-Regular';
-  src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+  src: url("../fonts/GreatVibes-Regular.f8ab2af266e7.ttf") format('truetype');
 }
 
 .cursor-pointer {
@@ -259,7 +259,7 @@ body {
 }
 
 .home-background {
-  background-image: url("../images/fondo_cristiano_2.jpg"); /* Ajusta el nombre de tu imagen */
+  background-image: url("../images/fondo_cristiano_2.947d823c81cc.jpg"); /* Ajusta el nombre de tu imagen */
   background-size: cover;
   background-color: rgb(138, 232, 251);
   background-position: center;

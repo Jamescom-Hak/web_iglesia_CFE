@@ -9,12 +9,23 @@
   <h1 class="text-center">Recursos</h1>
   <div class="row">
     {% for recurso in recursos %}
-    <div class="col-md-4">
-      <div class="card mb-4">
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 d-flex flex-column justify-content-center align-items-center text-center">
         <div class="card-body">
           <h5 class="card-title">{{ recurso.titulo }}</h5>
+          <p class="card-text">Interprete: {{ recurso.interprete }}</p>
           <p class="card-text">Tipo: {{ recurso.tipo }}</p>
-          <a href="{{ recurso.url }}" class="btn btn-primary">Acceder</a>
+          <!-- Mostrar el video incrustado si es un video -->
+          {% if recurso.tipo == 'Video' %}
+          <div class="embed-responsive embed-responsive-16by9 w-100">
+            <iframe
+              class="embed-responsive-item"
+              src="{{ recurso.url }}"
+              allowfullscreen
+              title="{{ recurso.titulo }}"
+            ></iframe>
+          </div>
+          {% endif %}
         </div>
       </div>
     </div>

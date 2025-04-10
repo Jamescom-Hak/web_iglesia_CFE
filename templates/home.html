@@ -47,81 +47,80 @@
   <h3 class="text-center mt-2 mb-2">Eventos Destacados</h3>
 
   <!-- Carrusel de Eventos -->
-  <div id="eventCarousel" class="carousel slide w-60" data-bs-ride="carousel">
-    <!-- Indicadores del Carrusel -->
-    <div class="carousel-indicators">
-      {% for evento in eventos %}
-      <button
-        type="button"
-        data-bs-target="#eventCarousel"
-        data-bs-slide-to="{{ forloop.counter0 }}"
-        {% if forloop.first %}class="active"{% endif %}
-        aria-label="Slide {{ forloop.counter }}"></button>
-      {% endfor %}
-    </div>
-
-    <!-- Contenido del Carrusel -->
-    <div class="carousel-inner">
-      {% for evento in eventos %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <div class="card card-evento shadow-sm">
-          <div class="row g-0">
-            <!-- Imagen -->
-            <div class="col-md-5 d-flex align-items-center justify-content-center">
-              {% if evento.nombre_imagen %}
-              <a href="{% url 'events' %}" class="d-block">
-                <img
-                  src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
-                  class="img-fluid rounded-start object-fit-cover"
-                  alt="{{ evento.titulo }}"
-                />
-              </a>
-              {% endif %}
-            </div>
-
-            <!-- Contenido del Card -->
-            <div class="col-md-7">
-              <div class="card-body d-flex flex-column justify-content-center h-100">
-                <h5 class="card-title">{{ evento.titulo }}</h5>
-                <p class="card-text"><small>{{ evento.fecha|date:"d M Y H:i" }}</small></p>
-                <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
-                <a href="{% url 'events' %}" class="btn btn-primary mt-auto">Ver más eventos</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% empty %}
-      <div class="carousel-item active">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <p class="text-center">No hay eventos próximos.</p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-
-    <!-- Botones de Navegación -->
+<div id="eventCarousel" class="carousel slide w-60 mx-auto" data-bs-ride="carousel">
+  <!-- Indicadores del Carrusel -->
+  <div class="carousel-indicators">
+    {% for evento in eventos %}
     <button
-      class="carousel-control-prev"
       type="button"
       data-bs-target="#eventCarousel"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#eventCarousel"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
+      data-bs-slide-to="{{ forloop.counter0 }}"
+      {% if forloop.first %}class="active"{% endif %}
+      aria-label="Slide {{ forloop.counter }}"></button>
+    {% endfor %}
   </div>
+
+  <!-- Contenido del Carrusel -->
+  <div class="carousel-inner">
+    {% for evento in eventos %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <div class="card card-evento shadow-sm">
+        <div class="row g-0">
+          <!-- Imagen -->
+          <div class="col-md-5 d-flex align-items-center justify-content-center">
+            {% if evento.nombre_imagen %}
+            <a href="{% url 'events' %}" class="d-block">
+              <img
+                src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
+                class="img-fluid rounded-start object-fit-cover"
+                alt="{{ evento.titulo }}"
+              />
+            </a>
+            {% endif %}
+          </div>
+
+          <!-- Contenido del Card -->
+          <div class="col-md-7">
+            <div class="card-body d-flex flex-column justify-content-center h-100">
+              <h5 class="card-title">{{ evento.titulo }}</h5>
+              <p class="card-text"><small>{{ evento.fecha|date:"d M Y H:i" }}</small></p>
+              <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
+              <a href="{% url 'events' %}" class="btn btn-primary mt-auto">Ver más eventos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="carousel-item active">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="text-center">No hay eventos próximos.</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Botones de Navegación -->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#eventCarousel"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#eventCarousel"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
 </div>
 
 <!-- Sección 4: Última publicación -->

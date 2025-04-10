@@ -19,16 +19,16 @@ def home(request):
     """ 
     En Home tenemos las opciones principales para el usuario, 
     en ella por medio de bloques el usuario se entera de los principales 
-    acontecimientos de la iglesi y por medio de links puede acceder a 
+    acontecimientos de la iglesia, por medio de clicks y links puede acceder a 
     la informaciòn respectiva
     """
-    eventos_destacados = Evento.objects.order_by('-fecha')[:3]
-    ultimo_blog = Blog.objects.order_by('-fecha_publicacion').first()
-    evento_especifico = Evento.objects.get(id=1)  # Cambia el ID por el de tu evento
+
+    # Obtener los 4 eventos más recientes
+    eventos_destacados = Evento.objects.order_by('-fecha')[:4]
+
+    # Renderizar la plantilla con los datos
     return render(request, 'home.html', {
         'eventos': eventos_destacados,
-        'ultimo_blog': ultimo_blog,
-        'evento_especifico': evento_especifico,
     })
 
 
@@ -57,13 +57,23 @@ def events(request):
 
 def resources(request):
     """ 
-    Recursos documentales o audivisuales para promover la enseñanza de 
+    Recursos documentales o audiovisuales para promover la enseñanza de 
     la palabra de Dios, de los diferentes ministerios o para cumplimiento 
-    de actividdes como el bautismo, etc.
+    de actividades como el bautismo, etc.
     """
     recursos = [
-        {'titulo': 'Sermón: La Gracia de Dios', 'tipo': 'Audio', 'url': '#'},
-        {'titulo': 'Devocional Semanal', 'tipo': 'PDF', 'url': '#'},
+        {
+            'titulo': 'Alabanza: Recordando a Jesús',
+            'interprete': 'Grupo de Alabanza, Ptr. Oscar Quevedo H.',
+            'tipo': 'Video',
+            'url': 'https://www.youtube.com/embed/-yq_W0WG_2k'  # URL modificada
+        },
+        {
+            'titulo': 'Alabanza: En los montes, en los valles',
+            'interprete': 'Grupo de Alabanza, Nataly Quevedo H.',
+            'tipo': 'Video',
+            'url': 'https://www.youtube.com/embed/Go4eyYfuha8'  # URL modificada
+        }
     ]
     return render(request, 'resources.html', {'recursos': recursos})
 
@@ -90,8 +100,8 @@ def contact(request):
             send_mail(
                 subject='Nuevo mensaje de contacto',  # Asunto del correo
                 message=contenido,  # Contenido del correo
-                from_email='ing.jamescom@gmail.com',  # Remitente
-                recipient_list=['osc_que@hotmail.com'],  # Destinatario
+                from_email=settings.DEFAULT_FROM_EMAIL,  # Remitente
+                recipient_list=['cfe.oriente.web@gmail.com'],  # Destinatario
                 fail_silently=False,
             )
             messages.success(request, 'Tu mensaje ha sido enviado exitosamente.')
@@ -125,7 +135,7 @@ def contact_test(request):
             subject='Nuevo Mensaje de Contacto',
             message=mensaje_completo,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=['ing.jamescom2@gmail.com'],
+            recipient_list=['cfe.oriente.web@gmail.com'],
         )
 
         # Mostrar un mensaje de éxito
