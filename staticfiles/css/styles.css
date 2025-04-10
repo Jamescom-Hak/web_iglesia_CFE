@@ -200,10 +200,30 @@ body {
 /* ______________________ 
    Estilos para Secciones 
    ______________________ */
-   .home-section {
-    padding: 2rem 0;
-  }
   
+  .home-section {
+    padding: 20px 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+
+  .home-section h3 {
+    font-size: 1.75rem; /* Tamaño de fuente grande para destacar el título */
+    font-weight: bold; /* Negrita para mayor énfasis */
+    text-align: center; /* Asegura que el título esté centrado */
+    margin-bottom: 2rem; /* Espacio entre el título y el contenido */
+  }
+
+  /* Estilos para el título "Última Publicación" */
+
+.home-section.blog-block h3 {
+  font-size: 1.75rem; /* Tamaño de fuente más grande */
+  font-weight: bold; /* Negrita para destacar */
+  text-align: center; /* Asegura que el título esté centrado */
+  margin-bottom: 2rem; /* Espacio adicional entre el título y el card */
+}
+
   .card-img {
     object-fit: cover;
     height: 100%;
@@ -250,13 +270,6 @@ body {
 /* _________________ 
    Estilos para Home 
    _________________ */
-
-.home-section {
-  padding: 20px 20px;
-  border-radius: 10px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
 
 .home-background {
   background-image: url("../images/fondo_cristiano_2.jpg"); /* Ajusta el nombre de tu imagen */
@@ -501,9 +514,18 @@ body {
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   transition: box-shadow 0.3s ease; /* Transición para efecto hover */
-  align-items: normal;
+  align-items: center;
   padding: 20px;
 }
+
+.card2 .card-body {
+  text-align: center; /* Centra todo el contenido dentro del card */
+}
+
+.card2 .btn-primary {
+  margin-top: 1rem; /* Espacio entre el texto y el botón */
+}
+
 .card-img-top-blog {
   max-height: 180px;
   max-width: 220px;

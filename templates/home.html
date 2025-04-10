@@ -47,90 +47,95 @@
   <h3 class="text-center mt-2 mb-2">Eventos Destacados</h3>
 
   <!-- Carrusel de Eventos -->
-<div id="eventCarousel" class="carousel slide w-60 mx-auto" data-bs-ride="carousel">
-  <!-- Indicadores del Carrusel -->
-  <div class="carousel-indicators">
-    {% for evento in eventos %}
+  <div id="eventCarousel" class="carousel slide w-60 mx-auto" data-bs-ride="carousel">
+    <!-- Indicadores del Carrusel -->
+    <div class="carousel-indicators">
+      {% for evento in eventos %}
+      <button
+        type="button"
+        data-bs-target="#eventCarousel"
+        data-bs-slide-to="{{ forloop.counter0 }}"
+        {% if forloop.first %}class="active"{% endif %}
+        aria-label="Slide {{ forloop.counter }}"></button>
+      {% endfor %}
+    </div> <!-- Cierre de carousel-indicators -->
+
+    <!-- Contenido del Carrusel -->
+    <div class="carousel-inner">
+      {% for evento in eventos %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="card card-evento shadow-sm">
+          <div class="row g-0">
+            <!-- Imagen -->
+            <div class="col-md-5 d-flex align-items-center justify-content-center">
+              {% if evento.nombre_imagen %}
+              <a href="{% url 'events' %}" class="d-block">
+                <img
+                  src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
+                  class="img-fluid rounded-start object-fit-cover"
+                  alt="{{ evento.titulo }}"
+                />
+              </a>
+              {% endif %}
+            </div> <!-- Cierre de col-md-5 -->
+
+            <!-- Contenido del Card -->
+            <div class="col-md-7">
+              <div class="card-body d-flex flex-column justify-content-center h-100">
+                <h5 class="card-title">{{ evento.titulo }}</h5>
+                <p class="card-text"><small>{{ evento.fecha|date:"d M Y H:i" }}</small></p>
+                <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
+                <a href="{% url 'events' %}" class="btn btn-primary mt-auto">Ver más eventos</a>
+              </div> <!-- Cierre de card-body -->
+            </div> <!-- Cierre de col-md-7 -->
+          </div> <!-- Cierre de row -->
+        </div> <!-- Cierre de card -->
+      </div> <!-- Cierre de carousel-item -->
+      {% empty %}
+      <div class="carousel-item active">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <p class="text-center">No hay eventos próximos.</p>
+          </div> <!-- Cierre de col-md-8 -->
+        </div> <!-- Cierre de row -->
+      </div> <!-- Cierre de carousel-item -->
+      {% endfor %}
+    </div> <!-- Cierre de carousel-inner -->
+
+    <!-- Botones de Navegación -->
     <button
+      class="carousel-control-prev"
       type="button"
       data-bs-target="#eventCarousel"
-      data-bs-slide-to="{{ forloop.counter0 }}"
-      {% if forloop.first %}class="active"{% endif %}
-      aria-label="Slide {{ forloop.counter }}"></button>
-    {% endfor %}
-  </div>
-
-  <!-- Contenido del Carrusel -->
-  <div class="carousel-inner">
-    {% for evento in eventos %}
-    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-      <div class="card card-evento shadow-sm">
-        <div class="row g-0">
-          <!-- Imagen -->
-          <div class="col-md-5 d-flex align-items-center justify-content-center">
-            {% if evento.nombre_imagen %}
-            <a href="{% url 'events' %}" class="d-block">
-              <img
-                src="{% static 'images/eventos/'|add:evento.nombre_imagen %}"
-                class="img-fluid rounded-start object-fit-cover"
-                alt="{{ evento.titulo }}"
-              />
-            </a>
-            {% endif %}
-          </div>
-
-          <!-- Contenido del Card -->
-          <div class="col-md-7">
-            <div class="card-body d-flex flex-column justify-content-center h-100">
-              <h5 class="card-title">{{ evento.titulo }}</h5>
-              <p class="card-text"><small>{{ evento.fecha|date:"d M Y H:i" }}</small></p>
-              <p class="card-text">{{ evento.descripcion|truncatewords:15 }}</p>
-              <a href="{% url 'events' %}" class="btn btn-primary mt-auto">Ver más eventos</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% empty %}
-    <div class="carousel-item active">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <p class="text-center">No hay eventos próximos.</p>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  <!-- Botones de Navegación -->
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#eventCarousel"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#eventCarousel"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
-</div>
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#eventCarousel"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div> <!-- Cierre de #eventCarousel -->
+</div> <!-- Cierre de home-section -->
 
 <!-- Sección 4: Última publicación -->
-<div class="home-section blog-block">
+<div class="home-section blog-block d-flex flex-column align-items-center">
   <div class="container">
-    <h3 class="text-center mb-3">Última Publicación</h3>
+    <!-- Título Centrado -->
+    <h3 class="text-center mt-4 mb-4">Última Publicación</h3>
+
+    <!-- Contenido del Card -->
     {% if ultimo_blog %}
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card2 mb-4">
+          <!-- Mostrar la imagen si existe -->
           {% if ultimo_blog.nombre_imagen %}
           <a href="{% url 'blog_detail' ultimo_blog.id %}">
             <img
@@ -141,11 +146,11 @@
           </a>
           {% endif %}
           <div class="card-body">
-            <h5 class="card-title">{{ ultimo_blog.titulo }}</h5>
-            <p class="card-text">{{ ultimo_blog.introduccion }}</p>
+            <h5 class="card-title text-center">{{ ultimo_blog.titulo }}</h5>
+            <p class="card-text text-center">{{ ultimo_blog.introduccion|truncatewords:20 }}</p>
             <a
               href="{% url 'blog_detail' ultimo_blog.id %}"
-              class="btn btn-primary"
+              class="btn btn-primary d-block mx-auto"
               >Leer más</a
             >
           </div>
@@ -159,9 +164,12 @@
 </div>
 
 <!-- Sección 5: Videos Cortos -->
-<div class="home-section videos-block">
+<div class="home-section videos-block d-flex flex-column align-items-center">
   <div class="container">
-    <h3 class="text-center mb-4">Tu ayuda es importante</h3>
+    <!-- Título Centrado -->
+    <h3 class="text-center mt-4 mb-4">Tu ayuda es importante</h3>
+
+    <!-- Contenedor de Videos -->
     <div class="row justify-content-center">
       <div class="col-md-6 mb-4">
         <div class="video-container">
@@ -181,4 +189,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}

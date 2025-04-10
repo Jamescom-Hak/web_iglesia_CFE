@@ -16,19 +16,19 @@ from core.models import About, Equipo, Evento, Documento, Blog
 
 
 def home(request):
-    """ 
-    En Home tenemos las opciones principales para el usuario, 
-    en ella por medio de bloques el usuario se entera de los principales 
-    acontecimientos de la iglesia, por medio de clicks y links puede acceder a 
-    la informaciòn respectiva
     """
-
+    En Home mostramos los últimos 4 eventos destacados y el último blog publicado.
+    """
     # Obtener los 4 eventos más recientes
     eventos_destacados = Evento.objects.order_by('-fecha')[:4]
+
+    # Obtener el último blog publicado
+    ultimo_blog = Blog.objects.order_by('-fecha_publicacion').first()
 
     # Renderizar la plantilla con los datos
     return render(request, 'home.html', {
         'eventos': eventos_destacados,
+        'ultimo_blog': ultimo_blog,
     })
 
 
