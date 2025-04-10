@@ -33,6 +33,12 @@ h2.text-center {
   margin-top: 0; /* Evita márgenes adicionales en los títulos */
 }
 
+@media (max-width: 768px) {
+  .base-container {
+    padding-top: 20px; /* Ajusta este valor según la altura de tu barra superior */
+  }
+}
+
 /* ___________________ 
    Estilos para Welcome 
    ___________________ */
