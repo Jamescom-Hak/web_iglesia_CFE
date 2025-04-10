@@ -5,8 +5,9 @@
 {% block title %} {{ blog.titulo }} {% endblock %}
 <!-- prettier-ignore -->
 {% block content %}
-<section class="my-5">
-  <h1 class="text-center">{{ blog.titulo }}</h1>
+<!-- Sección de Contacto -->
+<section class="contact-section my-5 base-container">
+  <h2 class="text-center mb-4">{{ blog.titulo }}</h2>
   <p class="text-center text-muted">
     Publicado el {{ blog.fecha_publicacion|date:"d M Y" }}
   </p>

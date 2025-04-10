@@ -22,6 +22,17 @@ body {
   }
 }
 
+/* Contenedor base para todas las pantallas */
+.base-container {
+  padding-top: 70px; /* Ajusta este valor según la altura de tu barra superior */
+  margin-bottom: 2rem; /* Espacio adicional en la parte inferior */
+}
+
+/* Estilo adicional para mejorar la consistencia */
+h2.text-center {
+  margin-top: 0; /* Evita márgenes adicionales en los títulos */
+}
+
 /* ___________________ 
    Estilos para Welcome 
    ___________________ */
@@ -346,11 +357,23 @@ body {
   background-color: #f9f9f9; /* Fondo claro */
 }
 
-.eventos-section h1 {
+.eventos-section h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #2c5282; /* Azul profundo */
   margin-bottom: 40px; /* Más espacio después del título */
+}
+
+/* Estilos para el modal */
+.modal-lg {
+  max-width: 90%; /* Limita el ancho del modal al 90% de la pantalla */
+}
+
+.modal-body img {
+  max-height: 80vh; /* Limita la altura máxima de la imagen al 80% de la altura de la pantalla */
+  width: auto; /* Mantiene la proporción original de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin deformarse */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 /* Centrar las tarjetas en la página */

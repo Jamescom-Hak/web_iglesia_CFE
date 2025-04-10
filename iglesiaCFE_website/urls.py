@@ -25,7 +25,6 @@ urlpatterns = [
     path('events/', views.events, name='events'),
     path('resources/', views.resources, name='resources'),
     path('contact/', views.contact, name='contact'),
-    path('contact_test/', views.contact_test, name='contact_test'),
     path('prayer-meetings/', views.prayer_meetings, name='prayer_meetings'),
     path('descargas/', views.descargas_view, name='downloads'),
     path('descargar/<int:pk>/', views.descargar_documento, name='descargar_documento'),

@@ -4,13 +4,8 @@ Recarga de las diferentes estancias necesarias para el funcionamiento
 de la App 
 """
 
-import logging
-from smtplib import SMTPException
-from django.conf import settings
-from django.core.mail import send_mail
-from django.contrib import messages
 from django.utils import timezone
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.http import FileResponse, Http404
 from core.models import About, Equipo, Evento, Documento, Blog
 
@@ -55,6 +50,15 @@ def events(request):
     return render(request, 'events.html', {'eventos': eventos})
 
 
+def contact(request):
+    """
+      Pantalla para informar al usuario sobre como contactar con la Iglesia
+      CFE Oriente y de como llegar a ella
+    """
+
+    return render(request, 'contact.html')
+
+
 def resources(request):
     """ 
     Recursos documentales o audiovisuales para promover la enseñanza de 
@@ -76,73 +80,6 @@ def resources(request):
         }
     ]
     return render(request, 'resources.html', {'recursos': recursos})
-
-
-def contact(request):
-    """ 
-    Lugar donde el usuario puede ver las diferentes formas de contacto 
-    con la iglesia, asì mismo por medio de un formulario puede enviar 
-    un mensaje directo al email oficial de la iglesia
-    """
-    logger = logging.getLogger(__name__)
-
-    if request.method == 'POST':
-        # Obtener los datos del formulario
-        nombre = request.POST.get('nombre')
-        email = request.POST.get('email')
-        mensaje = request.POST.get('mensaje')
-
-        # Construir el contenido del correo
-        contenido = f"Nombre: {nombre}\nCorreo: {email}\nMensaje:\n{mensaje}"
-
-        try:
-            # Enviar el correo
-            send_mail(
-                subject='Nuevo mensaje de contacto',  # Asunto del correo
-                message=contenido,  # Contenido del correo
-                from_email=settings.DEFAULT_FROM_EMAIL,  # Remitente
-                recipient_list=['cfe.oriente.web@gmail.com'],  # Destinatario
-                fail_silently=False,
-            )
-            messages.success(request, 'Tu mensaje ha sido enviado exitosamente.')
-            return redirect('contacto')
-        except SMTPException as e:
-            messages.error(request, f'Error al enviar el mensaje: {str(e)}')
-        except Exception as e:
-            # Usar formato % en lugar de f-strings
-            logger.error('Error inesperado: %s', str(e))
-            messages.error(request, 'Ha ocurrido un error inesperado. Inténtalo más tarde.')
-
-    return render(request, 'contact.html')  # Renderiza la plantilla HTML
-
-
-def contact_test(request):
-    """ 
-    Lugar donde el usuario puede ver las diferentes formas de contacto 
-    con la iglesia, asì mismo por medio de un formulario puede enviar 
-    un mensaje directo al email oficial de la iglesia
-    """
-    if request.method == 'POST':
-        nombre = request.POST['nombre']
-        email = request.POST['email']
-        mensaje = request.POST['mensaje']
-
-        # Construir el mensaje
-        mensaje_completo = f'Nombre: {nombre}\nCorreo Electrónico: {email}\nMensaje:\n{mensaje}'
-
-        # Enviar el correo
-        send_mail(
-            subject='Nuevo Mensaje de Contacto',
-            message=mensaje_completo,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=['cfe.oriente.web@gmail.com'],
-        )
-
-        # Mostrar un mensaje de éxito
-        messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
-        return redirect('contact_test')  # Redirigir a la misma página después de enviar el mensaje
-
-    return render(request, 'contact_test.html')
 
 
 def prayer_meetings(request):
